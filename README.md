@@ -29,7 +29,7 @@ ScutBookshop
 ### 1.3.后端代码结构
 
 ```lua
-src/main/java/com/micer/backend
+src/main/java/com/scut/ScutBookshop
 ├── controller -- 控制器（API）
 ├── service -- 服务层（业务逻辑）
 |    ├── impl -- 服务实现
