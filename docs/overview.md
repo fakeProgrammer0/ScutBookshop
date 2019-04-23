@@ -13,7 +13,7 @@
 |  柯宗言                                                            |                                                   |                            |                 |
 |  束航                                                            |                                                   |                            |                 |
 |  蔡思凯                                                            |                                                   |                            |                 |
-|  陈源森                                                            |                                                   |                            |                 |
+|  陈源森 [asahimoon](https://github.com/asahimoon)                                                           |        √flask                                           |             √java <br/>√python<br/>               |   前端懂的不多              | 
 | 陈绿佳 [fakeProgrammer0](https://github.com/fakeProgrammer0) | ✓ spring boot <br/>✓ mybatis <br/>✓ elasticsearch | ✓ java <br/>✓ python <br/> | 前端基础几乎为0 |
 
 ## 2.系统概要设计设想
