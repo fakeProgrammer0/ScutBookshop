@@ -1,0 +1,18 @@
+
+spring:
+  datasource:
+    url: ENC(Z7cWUXxsZeSxx3QAGbiiwl2W5zptovKfh2vs0l7bRvf46pxSYj3MpX14u14XNMwYGrkLckH5yQr2MrX8NvXDf8nX42eWIp7VINg3cBTBfo6oeo+towxfZ/MRndaIhS07p7BDTBNqM3i0zKe/+9G2H3ZufdByexaAjG01HP7WCYm0nb014em5Dq+VTp3bopWhRFOsafm9Ja/VTzb47LvuRbg7nPyI4uk37BszsZQ9lE4=)
+    username: ENC(gP3PulptKUuQIcwyc3u14Q==)
+    password: ENC(npSKMhJFbiIUz22hebUr9cDQ3RM6llSy)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.edu.scut.bookshop.domain.pojo
+
+
+logging:
+  config: classpath:logback-boot.xml
+jasypt:
+  encryptor:
+    password: easyrsa
