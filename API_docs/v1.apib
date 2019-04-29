@@ -1,0 +1,124 @@
+FORMAT: 1A
+
+# Rest API
+
+# Group Books
+
+## A Book [/books/{id}]
+
++ Parameters
+
+    + id: 6082808(number) - 图书id
+
+## A1.Get Details about A Book [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "msg": "OK",
+                "data": {
+                    "id": 6082808,
+                    "title": "百年孤独",
+                    "author": "[哥伦比亚]加西亚·马尔克斯",
+                    "translator": "范晔",
+                    "press": "南海出版公司",
+                    "publish_date": "2011-6",
+                    "page": "360",
+                    "price": "39.50元",
+                    "binding": "精装",
+                    "ISBN": "9787544253994",
+                    "douban_score": "9.2",
+                    "subject_url": "https://book.douban.com/subject/6082808/",
+                    "pic_url": "https://img3.doubanio.com/view/subject/l/public/s6384944.jpg",
+                    "summary": "《百年孤独》是魔幻现实主义文学的代表作，描写了布恩迪亚家族七代人的传奇故事，以及加勒比海沿岸小镇马孔多的百年兴衰，反映了拉丁美洲一个世纪以来风云变幻的历史。作品融入神话传说、民间故事、宗教典故等神秘因素，巧妙地糅合了现实与虚幻，展现出一个瑰丽的想象世界，成为20世纪最重要的经典文学巨著之一。1982年加西亚?马尔克斯获得诺贝尔文学奖，奠定世界级文学大师的地位，很大程度上乃是凭借《百年孤独》的巨大影响。",
+                    "author_intro": "加西亚?马尔克斯（Gabriel García Márquez）1927年出生于哥伦比亚马格达莱纳海滨小镇阿拉卡塔卡。童年与外祖父母一起生活。1936年随父母迁居苏克雷。1947年考入波哥大国立大学。1948年因内战辍学，进入报界。五十年代开始发表文学作品。六十年代初移居墨西哥。1967年出版《百年孤独》。1982年获诺贝尔文学奖。"
+                }
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "number",
+                        "description": "消息状态码"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "消息简述"
+                    },
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number",
+                                "description": "豆瓣图书id"
+                            },                    
+                            "title": {
+                                "type": "string",
+                                "description": "书名"
+                            },
+                            "author": {
+                                "type": "string",
+                                "description": "作者"
+                            },
+                            "translator": {
+                                "type": "string",
+                                "description": "译者"
+                            },
+                            "press": {
+                                "type": "string",
+                                "description": "出版社"
+                            },
+                            "publish_date": {
+                                "type": "string",
+                                "description": "出版日期"
+                            },
+                            "page": {
+                                "type": "number",
+                                "description": "页数"
+                            },
+                            "price": {
+                                "type": "string",
+                                "description": "价格"
+                            },
+                            "binding": {
+                                "type": "string",
+                                "description": "装订"
+                            },
+                            "ISBN": {
+                                "type": "string",
+                                "description": ""
+                            },
+                            "douban_score": {
+                                "type": "number",
+                                "description": "豆瓣评分"
+                            },
+                            "subject_url": {
+                                "type": "string",
+                                "description": "豆瓣链接"
+                            },
+                            "pic_url": {
+                                "type": "string",
+                                "description": "图片链接"
+                            },                    
+                            "summary": {
+                                "type": "string",
+                                "description": "图书简介"
+                            },
+                            "author_intro": {
+                                "type": "string",
+                                "description": "作者简介"
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+
