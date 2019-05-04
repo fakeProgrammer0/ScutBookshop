@@ -8,8 +8,9 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: cn.edu.scut.bookshop.domain.pojo
-
+  type-aliases-package: "cn.edu.scut.bookshop.domain.pojo"
+#  configuration:
+#    interceptors: ["com.github.pagehelper.PageInterceptor"]
 
 logging:
   config: classpath:logback-boot.xml
