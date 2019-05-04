@@ -21,6 +21,7 @@ public enum ErrorCode
     // 404 Not Found
     NOT_FOUND_COMMON(404_000, "Not Found"),
     NOT_FOUND_USERNAME_OR_PASSWORD_INVALID(404_001, "用户不存在或密码错误"),
+    NOT_FOUND_BOOK_ID(404_002, "图书id不存在"),
     
     
     // 500 Internal Server Error 服务器错误

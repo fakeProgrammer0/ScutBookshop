@@ -1,7 +1,29 @@
 # noinspection SqlNoDataSourceInspectionForFile
 drop database if exists `bookshop`;
-create database `bookshop` character set utf8;
+create database `bookshop` character set utf8mb4;
 use `bookshop`;
+
+create table `country_t`
+(
+    `id`   int(11) auto_increment primary key,
+    `name` varchar(99),
+    `abbr` varchar(99) comment '简称'
+);
+
+create table `author_t`
+(
+    `id`         int(11) primary key comment '豆瓣id，不自增',
+    `name`       varchar(99) not null,
+    `original`   varchar(99) comment '原外文名',
+    `country_id` int(11),
+    `intro`      varchar(4096) comment '作者简介',
+    `pic_url`    varchar(256) comment '图片链接',
+    `author_url` varchar(256) comment '豆瓣链接',
+    `gender`   numeric(1, 0) default 0 comment '性别：0未知，1男，2女',
+    `born` date comment '出生日期',
+    `died` date comment '逝世日期',
+    foreign key (`country_id`) references `country_t` (`id`)
+);
 
 create table `book_t`
 (
@@ -24,33 +46,11 @@ create table `book_t`
     foreign key (`author_id`) references `author_t` (`id`)
 );
 
-create table `author_t`
-(
-    `id`         int(11) primary key comment '豆瓣id，不自增',
-    `name`       varchar(99) not null,
-    `original`   varchar(99) comment '原外文名',
-    `country_id` int(11),
-    `intro`      varchar(4096) comment '作者简介',
-    `pic_url`    varchar(256) comment '图片链接',
-    `author_url` varchar(256) comment '豆瓣链接',
-    foreign key (`original`) references `country_t` (`id`)
-);
-
-create table `country_t`
-(
-    `id`   int(11) auto_increment primary key,
-    `name` varchar(99),
-    `abbr` varchar(99) comment '简称'
-);
-
 create view `author_v` as
-select A.id, A.name, A.original, C.name, A.intro, A.pic_url
+select A.id, A.name, A.original, C.name as `country`, A.intro, A.pic_url,
+       concat('[', C.abbr, ']', A.name) as `country_name`
 from `author_t` as A
          join `country_t` as C on A.country_id = C.id;
-
-select B.*, A.name as `author`
-from `book_t` as B
-         join `author_v` as A on B.author_id = A.id;
 
 create table `category_t`
 (
@@ -101,7 +101,7 @@ create table `user_t`
     `username` varchar(99) not null,
     `password` varchar(99) not null,
     `gender`   numeric(1, 0) default 0 comment '性别：0未知，1男，2女',
-    `age`      numeric(2, 0) default 0,
+    `age`      numeric(3, 0) default 0,
     unique key (`username`)
 );
 
