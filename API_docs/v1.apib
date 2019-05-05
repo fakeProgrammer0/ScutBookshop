@@ -1,16 +1,17 @@
 FORMAT: 1A
 
-# Rest API
+# ScutBookshop Rest API
 
 # Group Books
 
-## A Book [/books/{id}]
+## Book Detail [/books/{id}]
+图书详情信息
 
 + Parameters
 
-    + id: 6082808(number) - 图书id
+    + id: 1770782(number) - 图书id
 
-## A1.Get Details about A Book [GET]
+### A1.获取图书详情信息 [GET]
 
 + Response 200 (application/json)
 
@@ -128,6 +129,261 @@ FORMAT: 1A
                     }
                 }
             }
+
+## Book Categories [/books/categories]
+
+### A2.获取图书类别 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "msg": "OK",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "文学"
+                    },
+                    {
+                        "id": 2,
+                        "title": "流行"  
+                    }
+                ]
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "number",
+                        "description": "消息状态码"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "消息简述"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "description": "类别信息",
+                            "properties": {
+                                "id": {
+                                    "type": "number",
+                                    "description": "类别id",
+                                }, 
+                                "title": {
+                                    "type": "string",
+                                    "description": "类别名称"
+                                }, 
+                            }
+                        }
+                    }
+                }
+            }
+
+
+## Category's Books [/books/categories/{category_id}{?n_books}]
+
++ Parameters
+    
+    + category_id: 1 (number) - 类别id
+    + n_books: 5 (number) - 返回书本数量
+
+### A3.获取某一类别下的图书 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "msg": "OK",
+                "data": [
+                    {
+                        "id": 1770782,
+                        "title": "追风筝的人",
+                        "author": "[美]卡勒德·胡赛尼",
+                        "price": 29.00,
+                        "douban_score": 8.9,
+                        "pic_url": "https://img3.doubanio.com/view/subject/l/public/s1727290.jpg"
+                    },
+                    {
+                        "id": 1006197,
+                        "title": "哈姆莱特",
+                        "author": "[英]威廉·莎士比亚",
+                        "price": 7,
+                        "douban_score": 8.5,
+                        "pic_url": "https://img1.doubanio.com/view/subject/l/public/s27009357.jpg",
+                    }
+                ]
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "number",
+                        "description": "消息状态码"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "消息简述"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "description": "图书概览",
+                            "properties": {
+                                "id": {
+                                    "type": "number",
+                                    "description": "豆瓣图书id"
+                                },                    
+                                "title": {
+                                    "type": "string",
+                                    "description": "书名"
+                                },
+                                "author": {
+                                    "type": "string",
+                                    "description": "作者"
+                                },
+                                "price": {
+                                    "type": "number",
+                                    "description": "价格"
+                                },
+                                "douban_score": {
+                                    "type": "number",
+                                    "description": "豆瓣评分"
+                                },
+                                "pic_url": {
+                                    "type": "string",
+                                    "description": "图片链接"
+                                }                   
+                            }
+                        }
+                    }
+                }
+            }
+
+## Book's Douban Short Comment [/books/{id}/short-comments]
+图书的豆瓣短评论
+
++ Parameters
+    
+    + id: 1770782(number) - 图书id
+
+### A4.获取图书的豆瓣短评论 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "msg": "OK",
+                "data": [
+                    "前半部比后半部好",
+                    "过誉",
+                    "非常好的一本通俗小说．适合拍电影的好脚本．里面有很多可贵的东西．但情节上也有些地方不可理喻．前半部非常的棒．但后面落入俗套子－－但还是感动了我．这是作者的处女作，已经非常的了不起了．",
+                    "追到的只有自己的过去救赎的只有自己的现在",
+                    "改变了我因为19：00对阿富汗20多年的曲解"
+                ]
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "number",
+                        "description": "消息状态码"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "消息简述"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "description": "短评论"
+                        }
+                    }
+                }
+            }
+
+
+## Book's Tags [/books/{id}/tags]
+图书标签
+
++ Parameters
+    
+    + id: 1770782(number) - 图书id
+
+### A5.获取图书的标签 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "msg": "OK",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "小说"
+                    },
+                    {
+                        "id": 2,
+                        "title": "成长"
+                    }
+                ]
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "number",
+                        "description": "消息状态码"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "消息简述"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "description": "标签信息",
+                            "properties": {
+                                "id": {
+                                    "type": "number",
+                                    "description": "标签id",
+                                }, 
+                                "title": {
+                                    "type": "string",
+                                    "description": "标签名称"
+                                }, 
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
 
 
 

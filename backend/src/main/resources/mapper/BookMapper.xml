@@ -4,8 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.scut.bookshop.dao.BookDao">
     <select id="getBookDetail" resultType="BookDetail">
-        select B.*, A.country_name as `author`
-            from (select * from `book_t` where `id` = #{id})as B
-         join `author_v` as A on B.author_id = A.id;
+        select * from `book_t` where `id` = #{id}
     </select>
 </mapper>
