@@ -1,0 +1,22 @@
+{
+    "status": 200,
+    "msg": "OK",
+    "data": [
+        {
+            "id": 1770782,
+            "title": "追风筝的人",
+            "author": "[美]卡勒德·胡赛尼",
+            "price": 29.00,
+            "douban_score": 8.9,
+            "pic_url": "https://img3.doubanio.com/view/subject/l/public/s1727290.jpg"
+        },
+        {
+            "id": 1006197,
+            "title": "哈姆莱特",
+            "author": "[英]威廉·莎士比亚",
+            "price": 7,
+            "douban_score": 8.5,
+            "pic_url": "https://img1.doubanio.com/view/subject/l/public/s27009357.jpg",
+        }
+    ]
+}
