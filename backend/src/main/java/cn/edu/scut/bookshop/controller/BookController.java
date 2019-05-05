@@ -16,9 +16,9 @@ public class BookController
     @Autowired
     private BookService bookService;
     
-    @ApiOperation("图书详情信息")
+    @ApiOperation("获取图书详情信息")
     @GetMapping("/books/{id}")
-    public Result getBookDetail(@PathVariable(value = "id") int id)
+    public Result getBookDetail(@PathVariable int id)
     {
         return bookService.getBookDetail(id);
     }
