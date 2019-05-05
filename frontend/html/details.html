@@ -70,7 +70,7 @@
       </div>
       <div class="product-intro layui-clear">
         <div class="preview-wrap">
-          <img id="pre_pic" src="">
+          <a href="javascript:;"><img id="pre_pic" :src="item.pic_url" height="400" width="400" alt="图片加载中"></a>
         </div>
         <div class="itemInfo-wrap">
           <div class="itemInfo">
@@ -125,7 +125,6 @@
     mounted: function () {
       this.$http.get('./json/item.json').then(function(res){
         this.item = res.data.data
-        // todo:图片动态加载无法显示
       },function(){
         console.log('请求失败处理');
       });
