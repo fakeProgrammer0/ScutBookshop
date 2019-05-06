@@ -6,18 +6,54 @@ export const PUT = 'put';
 export const DELETE = 'delete';
 
 // 本机调试
-export const baseUrl = 'http://localhost:8080';
-// export const baseUrl = 'http://116.:8080';
+// export const baseUrl = 'http://localhost:8080';
+export const baseUrl = 'http://116.56.140.131:8080'; // 院长的超级服务器
 
 
 
+export const getBookDetail = (book_id) => {
+  return axios({
+    url: baseUrl + "/books/" + book_id
+  })
+};
 
+export const getShortComments = (book_id) => {
+  return axios({
+    url: baseUrl + "/books/" + book_id + "/short-comments",
+  })
+};
 
+export const getBookTags = (book_id) => {
+  return axios({
+    url: baseUrl + "/books/" + book_id + "/tags"
+  })
+};
 
+export const getAllCategories = () => {
+  return axios({
+    url: baseUrl + "/books/categories"
+  })
+};
 
+export const getBooksInCategory = (category_id, page, per_page) =>{
+  return axios({
+    url: baseUrl + "/books/categories/" + category_id,
+    params: {
+      "page": page,
+      "per_page": per_page
+    }
+  })
+};
 
-
-
+export const search = (keyword, size) => {
+  return axios({
+    url: baseUrl + "/search",
+    params: {
+      "keyword": keyword,
+      "size": size
+    }
+  });
+};
 
 export const userLogin = (username, password) => {
   return axios({
@@ -30,18 +66,13 @@ export const userLogin = (username, password) => {
   })
 };
 
-export const getBookDetail = (book_id) => {
-  return axios({
-    url: baseUrl + "/books/" + book_id
-  })
-};
 
 
-export const getShortComments = (book_id) => {
-  return axios({
-    url: baseUrl + "/books/" + book_id + "/short-comments",
-  })
-};
+
+
+
+
+// others
 
 export const addCollectedBook = (user_id, book_id) => {
   return axios({

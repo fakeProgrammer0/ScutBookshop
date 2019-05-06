@@ -15,6 +15,6 @@ public interface BookDao
     BookDetail getBookDetail(@Param("id") int id);
     List<BookCategory> getBookCategories();
     List<BookTag> getBookTagRelations(@Param("id") int id);
-    List<ShortComment>getShortComments(@Param("id") int id);
+    List<String>getShortComments(@Param("id") int id);
     List<BookSimpleDetail>getAllBookInCatagory(@Param("category_id") int category_id);
 }
