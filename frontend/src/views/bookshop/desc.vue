@@ -167,6 +167,15 @@
           console.log(error)
         })
       },
+
+
+
+
+
+
+
+
+      // TODO: 待修改
       handleCollected() {
         if (this.collectedBtnType === 'info') {
           this.addFavoriteMovie()

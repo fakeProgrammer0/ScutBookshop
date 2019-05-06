@@ -40,7 +40,7 @@ public class BookService
     }
 
     public Result getShortComments(int id){
-        List<ShortComment> shortComments=bookDao.getShortComments(id);
+        List<String> shortComments=bookDao.getShortComments(id);
         if(shortComments==null)
             throw new BusinessException(ErrorCode.NOT_FOUND_COMMON);
         return Result.OK().data(shortComments).build();

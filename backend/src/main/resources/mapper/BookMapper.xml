@@ -12,8 +12,8 @@
     <select id="getBookTagRelations" resultType="BookTag">
         select id,title from `tag_t`,`book_tag_t` where book_tag_t.book_id=#{id} and tag_t.id=book_tag_t.tag_id
     </select>
-    <select id="getShortComments" resultType="ShortComment">
-        select comment from short_comment_t where book_id=#{id}
+    <select id="getShortComments" resultType="java.lang.String">
+        select `comment` from `short_comment_t` where `book_id` = #{id}
     </select>
 
     <select id="getAllBookInCatagory" resultType="BookSimpleDetail">
