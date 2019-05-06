@@ -97,6 +97,14 @@ export const constantRouterMap = [
         // hidden: true,
         meta: { title: 'desc', icon: 'documentation', noCache: true }
       },
+      {
+        path: 'index',
+        component: () => import('@/views/bookshop/index'),
+        props: true,
+        name: 'index',
+        // hidden: true,
+        meta: { title: 'index', icon: 'documentation', noCache: true }
+      }
       // {
       //   path: 'favorite',
       //   component: () => import('@/views/movies/collectedList'),

@@ -27,6 +27,7 @@
           <div class="book-desc">名称：{{ book.title }}</div>
           <div class="book-desc" v-if="book.original != null">原作名：{{ book.original }}</div>
           <div class="book-desc">作者：{{ book.author }}</div>
+          <div class="book-desc">作者简介：{{ book.author_intro }}</div>
           <div class="book-desc" v-if="book.translator != null">译者：{{ book.translator }}</div>
           <div class="book-desc">出版社：{{ book.press }}</div>
           <div class="book-desc">出版日期：{{ book.publish_date }}</div>
@@ -37,6 +38,7 @@
           <div class="book-desc">装帧：{{ book.binding }}</div>
           <div class="book-desc">豆瓣评分：{{ book.douban_score }}</div>
           <div class="book-desc">ISBN：{{ book.ISBN }}</div>
+          <div class="book-desc">简介：{{ book.summary }}</div>
         </div>
 
       </div>
