@@ -77,35 +77,65 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/movies',
+    path: '/bookshop',
     component: Layout,
     redirect: 'noredirect',
-    name: 'Movies',
-    meta: { title: 'Movies', icon: 'example' },
+    name: 'Bookshop',
+    meta: { title: 'Bookshop', icon: 'example' },
     children: [
+      // {
+      //   path: 'home',
+      //   component: () => import('@/views/movies/index'),
+      //   name: 'Home',
+      //   meta: { title: 'Home', icon: 'list' }
+      // },
       {
-        path: 'home',
-        component: () => import('@/views/movies/index'),
-        name: 'Home',
-        meta: { title: 'Home', icon: 'list' }
-      },
-      {
-        path: 'desc/:movie_title',
-        component: () => import('@/views/movies/desc'),
-        // props: {default: false, movie_title: "阿甘正传 Forrest Gump"},
+        path: 'desc/:book_id',
+        component: () => import('@/views/bookshop/desc'),
         props: true,
         name: 'desc',
         // hidden: true,
         meta: { title: 'desc', icon: 'documentation', noCache: true }
       },
-      {
-        path: 'favorite',
-        component: () => import('@/views/movies/collectedList'),
-        name: 'Favorite',
-        meta: { title: 'Favorite', icon: 'star' }
-      }
+      // {
+      //   path: 'favorite',
+      //   component: () => import('@/views/movies/collectedList'),
+      //   name: 'Favorite',
+      //   meta: { title: 'Favorite', icon: 'star' }
+      // }
     ]
   },
+
+  // {
+  //   path: '/movies',
+  //   component: Layout,
+  //   redirect: 'noredirect',
+  //   name: 'Movies',
+  //   meta: { title: 'Movies', icon: 'example' },
+  //   children: [
+  //     {
+  //       path: 'home',
+  //       component: () => import('@/views/movies/index'),
+  //       name: 'Home',
+  //       meta: { title: 'Home', icon: 'list' }
+  //     },
+  //     {
+  //       path: 'desc/:movie_title',
+  //       component: () => import('@/views/movies/desc'),
+  //       // props: {default: false, movie_title: "阿甘正传 Forrest Gump"},
+  //       props: true,
+  //       name: 'desc',
+  //       // hidden: true,
+  //       meta: { title: 'desc', icon: 'documentation', noCache: true }
+  //     },
+  //     {
+  //       path: 'favorite',
+  //       component: () => import('@/views/movies/collectedList'),
+  //       name: 'Favorite',
+  //       meta: { title: 'Favorite', icon: 'star' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/documentation',

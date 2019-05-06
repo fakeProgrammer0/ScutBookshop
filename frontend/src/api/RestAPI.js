@@ -1,74 +1,74 @@
 import axios from 'axios'
-import * as RestUrl from './RestUrl'
 
-export const userLogin = params => {
-  return axios({
-    method: 'post',
-    url: RestUrl.baseUrl + RestUrl.userLogin,
-    data: params
-  })
-}
+export const GET = 'get';
+export const POST = 'post';
+export const PUT = 'put';
+export const DELETE = 'delete';
 
-export const getMoivesInfo = params => {
-  return axios({
-    method: `get`,
-    url: RestUrl.baseUrl + RestUrl.getMoviesInfo,
-    params: params
-  })
-}
+// 本机调试
+export const baseUrl = 'http://localhost:8080';
+// export const baseUrl = 'http://116.:8080';
 
-export const getMovieDesc = params => {
-  return axios({
-    method: 'get',
-    url: RestUrl.baseUrl + RestUrl.getMovieDesc,
-    params: params
-  })
-}
 
-export const getMoviesCnt = params => {
-  return axios({
-    method: 'get',
-    url: RestUrl.baseUrl + RestUrl.moviesCnt
-  })
-}
 
-export const getShortComments = params => {
-  return axios({
-    method: 'get',
-    url: RestUrl.baseUrl + RestUrl.shortComments,
-    params: params
-  })
-}
 
-export const addCollectedMovie = params => {
-  return axios({
-    method: 'put',
-    url: RestUrl.baseUrl + RestUrl.collectedMovie,
-    data: params
-  })
-}
 
-export const removeCollectedMovie = params => {
+
+
+
+
+
+
+export const userLogin = (username, password) => {
   return axios({
-    method: 'delete',
-    url: RestUrl.baseUrl + RestUrl.collectedMovie,
-    data: params
+    method: POST,
+    url: baseUrl + "/users/login",
+    data: {
+      "username": username,
+      "password": password
+    }
   })
-}
+};
+
+export const getBookDetail = (book_id) => {
+  return axios({
+    url: baseUrl + "/books/" + book_id
+  })
+};
+
+
+export const getShortComments = (book_id) => {
+  return axios({
+    url: baseUrl + "/books/" + book_id + "/short-comments",
+  })
+};
+
+export const addCollectedBook = (user_id, book_id) => {
+  return axios({
+    method: POST,
+    url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+  })
+};
+
+export const removeCollectedBook = (user_id, book_id) => {
+  return axios({
+    method: DELETE,
+    url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+  })
+};
 
 export const getCollectedMovies = params => {
   return axios({
     method: 'get',
-    url: RestUrl.baseUrl + RestUrl.getCollectedMoves,
+    url: baseUrl + getCollectedMoves,
     params: params
   })
-}
+};
 
-export const checkMovieCollected = params => {
+export const checkCollectedBook = (user_id, book_id) => {
   return axios({
-    method: 'get',
-    url: RestUrl.baseUrl + RestUrl.collectedMovie,
-    params: params
+    method: GET,
+    url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
   })
-}
+};
 
