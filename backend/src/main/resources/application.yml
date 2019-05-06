@@ -17,3 +17,10 @@ logging:
 jasypt:
   encryptor:
     password: easyrsa
+
+elasticsearch-config:
+  host: localhost
+  port: 9200
+  index: bookshop
+
+
