@@ -50,7 +50,7 @@ create table `tag_t`
 (
     `id`          int(11) auto_increment primary key,
     `title`       varchar(99) comment '标签名称',
-    `category_id` int(11) default -1 comment '类别id，-1表示无类别',
+    `category_id` int(11) default 0 comment '类别id，0表示无类别',
     unique key (`title`),
     foreign key (`category_id`) references `category_t` (`id`) on delete cascade
 );
