@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 一个数据库一个context -->
+    <context id="bookshop">
+         <!--注释,但是mapper生成的注释都没有什么价值，而且可能出问题 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库链接URL、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://107.191.52.220:3306/bookshop"
+                        userId="root"
+                        password="root0101">
+        </jdbcConnection>
+
+
+        <!-- 生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java，
+            也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下 -->
+        <javaModelGenerator targetPackage="cn.edu.scut.bookshop.domain.pojo"
+                            targetProject="./src/main/java">
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+
+
+        <table tableName="category_t" domainObjectName="BookCategories">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <!--<table tableName="tag_t" domainObjectName="BookTag">-->
+            <!--<property name="useActualColumnNames" value="true" />-->
+        <!--</table>-->
+        <!--<table tableName="book_tag_t" domainObjectName="BookTagRelation">-->
+            <!--<property name="useActualColumnNames" value="true" />-->
+        <!--</table>-->
+
+        <!--<table tableName="short_comment_t" domainObjectName="ShortComment">-->
+            <!--<property name="useActualColumnNames" value="true" />-->
+        <!--</table>-->
+
+        <!--<table tableName="author_t" domainObjectName="Author">-->
+            <!--<property name="useActualColumnNames" value="true" />-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>

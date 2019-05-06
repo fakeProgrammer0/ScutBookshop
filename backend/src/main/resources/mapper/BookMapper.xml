@@ -6,4 +6,19 @@
     <select id="getBookDetail" resultType="BookDetail">
         select * from `book_t` where `id` = #{id}
     </select>
+    <select id="getBookCategories" resultType="BookCategory">
+        select * from `category_t`
+    </select>
+    <select id="getBookTagRelations" resultType="BookTag">
+        select id,title from `tag_t`,`book_tag_t` where book_tag_t.book_id=#{id} and tag_t.id=book_tag_t.tag_id
+    </select>
+    <select id="getShortComments" resultType="ShortComment">
+        select comment from short_comment_t where book_id=#{id}
+    </select>
+
+    <select id="getAllBookInCatagory" resultType="BookSimpleDetail">
+      select * from book_t  where id
+      in(select book_id as id from tag_t FULL JOIN book_tag_t where  tag_id=id and category_id='1' )
+      ORDER BY douban_score desc
+    </select>
 </mapper>
