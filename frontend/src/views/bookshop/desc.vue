@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
 
-    <!--<div style="padding-bottom: 50px;max-height: 400px;">-->
-    <!--<el-input v-model="title" style="width: 300px;"></el-input>-->
-    <!--<el-button @click="loadBookDetail">loadDesc</el-button>-->
-    <!--<el-button @click="loadShortComments">loadComments</el-button>-->
-    <!--<el-button @click="handleTest">Test</el-button>-->
-    <!--<el-button type="info" icon="el-icon-star-off"></el-button>-->
-    <!--<el-button type="info" icon="el-icon-star-on"></el-button>-->
-    <!--</div>-->
+    <div style="padding-bottom: 50px;max-height: 400px;">
+    <el-input v-model="book_id" style="width: 300px;"></el-input>
+    <el-button @click="loadBookDetail">loadDesc</el-button>
+    <el-button @click="loadShortComments">loadComments</el-button>
+    <el-button @click="handleTest">Test</el-button>
+    <el-button type="info" icon="el-icon-star-off"></el-button>
+    <el-button type="info" icon="el-icon-star-on"></el-button>
+    </div>
 
     <el-card class="box-card-component" style="margin-top: 20px;margin-bottom: 50px">
       <div slot="header" class="box-card-header">

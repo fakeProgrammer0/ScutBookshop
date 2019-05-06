@@ -6,9 +6,8 @@ export const PUT = 'put';
 export const DELETE = 'delete';
 
 // 本机调试
-// export const baseUrl = 'http://localhost:8080';
-export const baseUrl = 'http://116.56.140.131:8080'; // 院长的超级服务器
-
+export const baseUrl = 'http://localhost:8080';
+// export const baseUrl = 'http://116.56.140.131:8080'; // 院长的超级服务器
 
 
 export const getBookDetail = (book_id) => {

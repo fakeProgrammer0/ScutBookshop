@@ -33,8 +33,8 @@ public class SearchService
     @Autowired
     private RestHighLevelClient elasticsearchClient;
     
-    @Value("${elasticsearch-config.index}")
-    private String elasticsearchIndex;
+//    @Value("${elasticsearch-config.index}")
+//    private String elasticsearchIndex;
     
     private final String elasticsearchDocType = "_doc";
     
@@ -43,18 +43,20 @@ public class SearchService
     
     public Result search(String keyword, int size)
     {
+        SearchRequest searchRequest = new SearchRequest();
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         if (StringUtils.isEmpty(keyword))
-            defaultSearch(searchSourceBuilder);
+        {
+            defaultSearch(searchRequest, searchSourceBuilder);
+        }
         else if (keyword.matches("\\s*\\d+\\s*"))
-            searchISBN(searchSourceBuilder, keyword);
-        else hybridSearch(searchSourceBuilder, keyword);
+            searchISBN(searchRequest, searchSourceBuilder, keyword);
+        else hybridSearch(searchRequest, searchSourceBuilder, keyword);
         
         searchSourceBuilder.size(size);
         searchSourceBuilder.fetchSource(SEARCH_INCLUDED_FIELDS, SEARCH_EXCLUDED_FIELDS);
         
-//        SearchRequest searchRequest = new SearchRequest(elasticsearchIndex, "books");
-        SearchRequest searchRequest = new SearchRequest(elasticsearchIndex);
+        
         searchRequest.source(searchSourceBuilder);
         SearchResponse searchResponse;
         try
@@ -78,19 +80,22 @@ public class SearchService
         return Result.OK().data(suggestedRecords).build();
     }
     
-    public void defaultSearch(SearchSourceBuilder searchSourceBuilder)
+    public void defaultSearch(SearchRequest searchRequest, SearchSourceBuilder searchSourceBuilder)
     {
+        searchRequest.indices("books");
         searchSourceBuilder.query(QueryBuilders.matchAllQuery());
         searchSourceBuilder.sort("douban_score", SortOrder.DESC);
     }
     
-    public void searchISBN(SearchSourceBuilder searchSourceBuilder, String keyword)
+    public void searchISBN(SearchRequest searchRequest, SearchSourceBuilder searchSourceBuilder, String keyword)
     {
+        searchRequest.indices("books");
         searchSourceBuilder.query(QueryBuilders.prefixQuery("ISBN", keyword));
     }
     
-    public void hybridSearch(SearchSourceBuilder searchSourceBuilder, String keyword)
+    public void hybridSearch(SearchRequest searchRequest, SearchSourceBuilder searchSourceBuilder, String keyword)
     {
+        searchRequest.indices("books", "authors");
         Map<String, Float> fields = new HashMap<>();
         fields.put("title.cn", 3f);
         fields.put("author.cn", 3f);

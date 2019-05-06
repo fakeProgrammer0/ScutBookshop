@@ -21,6 +21,6 @@ jasypt:
 elasticsearch-config:
   host: localhost
   port: 9200
-  index: bookshop
+#  index: bookshop
 
 
