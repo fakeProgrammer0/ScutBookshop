@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <el-container>
       <el-header style="margin-top: 20px">
         <!--<el-row style="min-height: 45px">-->
@@ -23,7 +23,13 @@
               @select="handleSelect"
               style="width:400px;margin-right: 10px"
               clearable
-            ></el-autocomplete>
+            >
+              <template slot-scope="{ item }">
+                <img :src="item.item.pic_url" style="width: 5px"/>
+                <span>{{item.value}}</span>
+              </template>
+
+            </el-autocomplete>
           </el-col>
           <!--<el-col :span="1" style="margin-left: 40px;margin-right: 5px">-->
             <!--<el-button type="primary" @click="getEntityInfo" icon="el-icon-info"></el-button>-->
@@ -49,16 +55,28 @@
         </el-row>
       </el-header>
       <el-main>
-        <div align="center">
-          <el-card class="result-card" v-for="result in searchResults">
-            <div slot="header" class="result-header">
-              <span></span>
-            </div>
-            <div>
-              <span></span>
-            </div>
-          </el-card>
-        </div>
+
+        <!--<div align="center">-->
+          <!--<el-card class="result-card" v-for="result in searchResults">-->
+            <!--<div slot="header" class="result-header">-->
+              <!--<span></span>-->
+            <!--</div>-->
+            <!--<div>-->
+              <!--<span></span>-->
+            <!--</div>-->
+          <!--</el-card>-->
+        <!--</div>-->
+
+        <el-card v-for="item in searchResult" class="box-card-component">
+          <div slot="header" class="box-card-header">
+            <router-link v-if="item.type === 'book' " :to="'/bookshop/desc/'+item.id">
+            <img :src="item.pic_url"></router-link>
+          </div>
+          <div style="position: relative;line-height: 16pt">
+            <b>{{ item.title }}</b>
+          </div>
+        </el-card>
+
       </el-main>
     </el-container>
 
@@ -110,7 +128,8 @@
         ],
         searchSuggestions: [
 
-        ]
+        ],
+        searchSuggestionSize: 10
       }
     },
     created() {
@@ -119,9 +138,10 @@
     methods: {
       searchEntityAsync(keyword, cb){
         var _this = this;
-        RestAPI.search(this.keyword, 10).then(res => {
+        RestAPI.search(this.keyword, 40).then(res => {
           console.log(res);
           _this.searchSuggestions = res.data.data;
+          _this.searchResult = _this.searchSuggestions;
           if(res.data.status === 200)
           {
             var results = [];
@@ -137,6 +157,8 @@
               else suggestion.value = item.name;
               results.push(suggestion);
             }
+            // _this.searchResult = results;
+            results.splice(_this.searchSuggestionSize, results.length - _this.searchSuggestionSize);
             cb(results);
           }
         }).catch(err => {
@@ -152,3 +174,37 @@
     }
   }
 </script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+  .box-card-component {
+    float: left;
+    width: 200px;
+    margin: 20px 10px 20px 10px;
+    max-height: 500px;
+  }
+</style>
+<style rel="stylesheet/scss" lang="scss">
+  .box-card-component {
+    .el-card__header {
+      padding: 0px !important;
+    }
+  }
+</style>
+<style rel="stylesheet/scss" lang="scss" scoped>
+  .box-card-component {
+    .box-card-header {
+      position: relative;
+      height: 250px;
+      img {
+        width: 100%;
+        height: 100%;
+        transition: all 0.2s linear;
+        &:hover {
+          transform: scale(1.1, 1.1);
+          filter: contrast(130%);
+        }
+      }
+    }
+  }
+</style>
+
