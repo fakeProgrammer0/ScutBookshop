@@ -25,7 +25,8 @@
               clearable
             >
               <template slot-scope="{ item }">
-                <img :src="item.item.pic_url" style="width: 5px"/>
+<!--                <img :src="item.item.pic_url" style="width: 5px"/>-->
+                <span v-if="item.type === 'author'">[作者] </span>
                 <span>{{item.value}}</span>
               </template>
 
