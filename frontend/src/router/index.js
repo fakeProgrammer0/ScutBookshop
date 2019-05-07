@@ -98,12 +98,12 @@ export const constantRouterMap = [
         meta: { title: 'desc', icon: 'documentation', noCache: true }
       },
       {
-        path: 'index',
-        component: () => import('@/views/bookshop/index'),
+        path: 'search',
+        component: () => import('@/views/bookshop/search.vue'),
         props: true,
-        name: 'index',
+        name: 'Search',
         // hidden: true,
-        meta: { title: 'index', icon: 'documentation', noCache: true }
+        meta: { title: 'search', icon: 'star', noCache: true }
       }
       // {
       //   path: 'favorite',
