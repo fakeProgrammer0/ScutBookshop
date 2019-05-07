@@ -83,12 +83,12 @@ export const constantRouterMap = [
     name: 'Bookshop',
     meta: { title: 'Bookshop', icon: 'example' },
     children: [
-      // {
-      //   path: 'home',
-      //   component: () => import('@/views/movies/index'),
-      //   name: 'Home',
-      //   meta: { title: 'Home', icon: 'list' }
-      // },
+      {
+        path: 'home',
+        component: () => import('@/views/bookshop/home'),
+        name: 'home',
+        meta: { title: 'home', icon: 'list' }
+      },
       {
         path: 'desc/:book_id',
         component: () => import('@/views/bookshop/desc'),

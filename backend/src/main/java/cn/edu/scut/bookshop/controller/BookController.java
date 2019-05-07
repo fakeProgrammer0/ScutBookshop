@@ -33,6 +33,12 @@ public class BookController
     public Result getBookCatagories(){
         return bookService.getBookCatagories();
     }
+    
+    @ApiOperation("获取图书类别与类别下的热门图书")
+    @GetMapping("/books/categories-books")
+    public Result getBookCatagoriesBooks(){
+        return bookService.getBookCatagoriesBooks();
+    }
 
     @ApiOperation("分页查询某类别下面的书籍")
     @GetMapping("/books/categories/{category_id}")

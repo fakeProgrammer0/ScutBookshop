@@ -17,8 +17,13 @@
     </select>
 
     <select id="getAllBookInCatagory" resultType="BookSimpleDetail">
-      select * from book_t  where id
-      in(select book_id as id from tag_t FULL JOIN book_tag_t where  tag_id=id and category_id='1' )
-      ORDER BY douban_score desc
+      select * from `book_t` where `id`
+      in (select `book_id` as `id`
+      from (select `id` from `tag_t` where category_id = #{category_id})
+      as T join `book_tag_t` as BT on T.id = BT.tag_id
+      ) ORDER BY douban_score desc
+    </select>
+    <select id="getAllBookCategories" resultType="java.util.Map">
+        select * from `category_t`
     </select>
 </mapper>
