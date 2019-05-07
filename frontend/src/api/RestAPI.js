@@ -34,6 +34,12 @@ export const getAllCategories = () => {
   })
 };
 
+export const getAllCategoriesBooks = () => {
+  return axios({
+    url: baseUrl + "/books/categories-books"
+  })
+};
+
 export const getBooksInCategory = (category_id, page, per_page) =>{
   return axios({
     url: baseUrl + "/books/categories/" + category_id,
