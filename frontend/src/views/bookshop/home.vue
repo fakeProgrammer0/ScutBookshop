@@ -10,11 +10,13 @@
           <h5>{{category.title}}</h5>
         </el-col>
         <!--<span>{{category.books.length}}</span>-->
-        <el-col :span="4" v-if="category.books != null" v-for="book in category.books">
+        <el-col :span="4" class="item" v-if="category.books != null" v-for="book in category.books">
+          <router-link :to="{name: 'desc', params: { book_id: book.id }}">
           <img :src="book.pic_url" height="200" width="150"><br/>
+          </router-link>
           【{{book.title}}】<br/>
           {{book.author}}<br/>
-          {{book.price}}<br/>
+          {{book.price.toFixed(2)}}<br/>
         </el-col>
       </el-row>
 
@@ -104,6 +106,9 @@
     float: left;
     height: 300px;
     width: 198px;
+    text-align: center;
+  }
+  .item{
     text-align: center;
   }
 

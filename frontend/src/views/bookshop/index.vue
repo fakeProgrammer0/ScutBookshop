@@ -17,7 +17,7 @@
           作者：{{book.author}}<br/>
           定价：{{book.price}}<br/>
 
-          <!--<router-link :to="{name: 'desc', params: { color: book.id }}">-->
+          <!--<router-link :to="{name: 'desc', params: { book_id: book.id }}">-->
           <!--<img :src="book.pic_url" height="200" width="150"><br>-->
           <!--书名：{{book.title}}<br>-->
           <!--作者：{{book.author}}<br>-->
