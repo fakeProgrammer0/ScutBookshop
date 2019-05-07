@@ -7,8 +7,8 @@ export const DELETE = 'delete';
 
 // 本机调试
 // export const baseUrl = 'http://localhost:8080'; // 本地调试
-// export const baseUrl = 'http://116.56.140.131:8080'; // 院长的超级服务器
-export const baseUrl = 'http://45.76.199.126:8080'; // 国外服务器
+// export const baseUrl = 'http://116.56.140.131:8080'; // 院长的超级服务器（华工校园网，夜间断网不可用）
+export const baseUrl = 'http://45.76.199.126:8080'; // 国外服务器 （短期内使用，不稳定；搜索接口不可用）
 
 export const getBookDetail = (book_id) => {
   return axios({
