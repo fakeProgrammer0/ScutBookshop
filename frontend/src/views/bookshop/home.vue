@@ -1,16 +1,19 @@
 <template>
   <el-container>
-    <el-header>
-    </el-header>
     <el-main>
+      <el-card class="box-card-component title" shadow="always" v-for="category in categories">
+        <div slot="header" class="box-card-header">
 
-      <el-row type="flex" v-for="(category, index) in categories">
-        <el-col class="left-title" :span="4">
-          <h4><i>{{category.id}}F</i></h4>
-          <h5>{{category.title}}</h5>
-        </el-col>
+          <h2>{{category.title}}</h2>
+
+        </div>
+      <el-row type="flex">
+<!--        <el-col class="left-title" :span="4">-->
+<!--          <h4><i>{{category.id}}F</i></h4>-->
+<!--          <h5>{{category.title}}</h5>-->
+<!--        </el-col>-->
         <!--<span>{{category.books.length}}</span>-->
-        <el-col :span="4" class="item" v-if="category.books != null" v-for="book in category.books">
+        <el-col :span="4" :offset="1" class="item" v-if="category.books != null" v-for="book in category.books">
           <router-link :to="{name: 'desc', params: { book_id: book.id }}">
           <img :src="book.pic_url" height="200" width="150"><br/>
           </router-link>
@@ -19,6 +22,7 @@
           {{book.price.toFixed(2)}}<br/>
         </el-col>
       </el-row>
+      </el-card>
 
     </el-main>
   </el-container>
@@ -102,11 +106,14 @@
 </script>
 
 <style scoped>
-  .left-title {
-    float: left;
-    height: 300px;
-    width: 198px;
-    text-align: center;
+  .title{
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  .box-card-header{
+    height: 20px;
+    margin-left: 30px;
+    line-height: 10px;
   }
   .item{
     text-align: center;

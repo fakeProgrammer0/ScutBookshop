@@ -38,13 +38,41 @@
           <div class="book-desc">装帧：{{ book.binding }}</div>
           <div class="book-desc">豆瓣评分：{{ book.douban_score }}</div>
           <div class="book-desc">ISBN：{{ book.ISBN }}</div>
-          <div class="book-desc">简介：{{ book.summary }}</div>
         </div>
 
       </div>
 
     </el-card>
 
+    <el-card class="box-card-component" style="margin-top: 50px;margin-bottom: 50px;background-color: #263445;">
+      <div slot="header">
+        <span style="font-size: 32px;color: #FFFFFF;padding-top: 5px;padding-bottom: 5px">图书简介</span>
+      </div>
+
+      <el-card
+        class="box-card-component"
+        style="margin-top: 20px;margin-bottom: 20px;">
+        <div style="font-size: 16px;line-height:20pt;">
+          {{ book.summary }}
+        </div>
+      </el-card>
+
+    </el-card>
+
+    <el-card class="box-card-component" style="margin-top: 50px;margin-bottom: 50px;background-color: #263445;">
+      <div slot="header">
+        <span style="font-size: 32px;color: #FFFFFF;padding-top: 5px;padding-bottom: 5px">作者简介</span>
+      </div>
+
+      <el-card
+        class="box-card-component"
+        style="margin-top: 20px;margin-bottom: 20px;">
+        <div style="font-size: 16px;line-height:20pt;">
+          {{ book.author_intro }}
+        </div>
+      </el-card>
+
+    </el-card>
     <!--<el-card class="box-card-component" style="margin-top: 50px;margin-bottom: 50px">-->
     <!--<div slot="header" class="box-card-header">-->
     <!--<span>豆瓣短评</span>-->
