@@ -29,8 +29,8 @@ public class BookService
     public Result getBookCatagories()
     {
         List<BookCategory> bookCategories = bookDao.getBookCategories();
-        if (bookCategories == null)
-            throw new BusinessException(ErrorCode.NOT_FOUND_COMMON);
+//        if (bookCategories == null)
+//            throw new BusinessException(ErrorCode.NOT_FOUND_COMMON);
         return Result.OK().data(bookCategories).build();
         
     }
