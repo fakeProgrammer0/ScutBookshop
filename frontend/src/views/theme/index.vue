@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
     <el-card class="box-card">
       <div slot="header">
         <a class="link-type link-title" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/guide/advanced/theme.html">

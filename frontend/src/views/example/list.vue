@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
 
     <el-table v-loading.body="listLoading" :data="list" border fit highlight-current-row style="width: 100%">
       <el-table-column align="center" label="ID" width="80">

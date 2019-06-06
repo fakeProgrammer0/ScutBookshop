@@ -2,26 +2,36 @@
   <div class="navbar">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
 
-    <breadcrumb class="breadcrumb-container"/>
+<!--    <breadcrumb class="breadcrumb-container"/>-->
+    <span class="left-menu">
+       <router-link :to="{name: 'home'}">
+      <el-link>首页</el-link>
+       </router-link>
+
+      <el-link>推荐</el-link>
+    </span>
 
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
-        <error-log class="errLog-container right-menu-item"/>
+<!--      <template v-if="device!=='mobile'">-->
+<!--        <error-log class="errLog-container right-menu-item"/>-->
 
-        <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
-          <screenfull class="screenfull right-menu-item"/>
-        </el-tooltip>
+<!--        <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">-->
+<!--          <screenfull class="screenfull right-menu-item"/>-->
+<!--        </el-tooltip>-->
 
-        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
-          <size-select class="international right-menu-item"/>
-        </el-tooltip>
+<!--        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">-->
+<!--          <size-select class="international right-menu-item"/>-->
+<!--        </el-tooltip>-->
 
-        <lang-select class="international right-menu-item"/>
+<!--        <lang-select class="international right-menu-item"/>-->
 
-        <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">
-          <theme-picker class="theme-switch right-menu-item"/>
-        </el-tooltip>
-      </template>
+<!--        <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">-->
+<!--          <theme-picker class="theme-switch right-menu-item"/>-->
+<!--        </el-tooltip>-->
+<!--      </template>-->
+
+      <el-button type="primary">购物车</el-button>
+      <el-button type="primary">收藏</el-button>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">

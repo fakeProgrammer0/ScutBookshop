@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
 
     <div class="filter-container">
       <el-checkbox-group v-model="formThead">

@@ -37,8 +37,8 @@
             <!--<el-button type="primary" @click="getEntityInfo" icon="el-icon-info"></el-button>-->
           <!--</el-col>-->
 
-          <el-col :span="1" style="margin-left: 10px;margin-right: 5px">
-            <el-button type="primary" @click="showSearchResults" icon="el-icon-search"></el-button>
+          <el-col :span="1" style="margin-left: 100px;margin-right: 5px">
+            <el-button type="primary" @click="showSearchResults" icon="el-icon-search">搜索</el-button>
           </el-col>
 
           <!--<el-col :span="2" style="margin-left: 10px;margin-right: 5px">-->
@@ -137,7 +137,7 @@
   import * as RestAPI from "@/api/RestAPI";
 
   export default {
-    name: "Search",
+    name: "SearchBox",
     data() {
       return {
         keyword: "",

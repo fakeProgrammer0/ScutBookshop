@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
     <p class="warn-content">
       {{ $t('guide.description') }}
       <a href="https://github.com/kamranahmedse/driver.js" target="_blank">driver.js.

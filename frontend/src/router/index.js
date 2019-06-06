@@ -104,6 +104,22 @@ export const constantRouterMap = [
         name: 'Search',
         // hidden: true,
         meta: { title: 'search', icon: 'star', noCache: true }
+      },
+      {
+        path: 'login',
+        component: () => import('@/views/bookshop/Login.vue'),
+        props: true,
+        name: 'Login',
+        // hidden: true,
+        meta: { title: 'login', icon: 'star', noCache: true }
+      },
+      {
+        path: 'register',
+        component: () => import('@/views/bookshop/Register.vue'),
+        props: true,
+        name: 'Register',
+        // hidden: true,
+        meta: { title: 'register', icon: 'star', noCache: true }
       }
       // {
       //   path: 'favorite',

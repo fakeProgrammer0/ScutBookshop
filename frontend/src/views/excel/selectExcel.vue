@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
     <!-- $t is vue-i18n global function to translate lang -->
     <el-input :placeholder="$t('excel.placeholder')" v-model="filename" style="width:340px;" prefix-icon="el-icon-document"/>
     <el-button :loading="downloadLoading" style="margin-bottom:20px" type="primary" icon="document" @click="handleDownload">{{ $t('excel.selectedExport') }}</el-button>

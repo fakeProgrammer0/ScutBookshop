@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
     <switch-roles @change="handleRolesChange" />
     <div :key="key" style="margin-top:30px;">
       <span v-permission="['admin']" class="permission-alert">
@@ -54,7 +54,7 @@ export default{
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.app-container {
+.search {
   /deep/ .permission-alert {
     width: 320px;
     margin-top: 30px;

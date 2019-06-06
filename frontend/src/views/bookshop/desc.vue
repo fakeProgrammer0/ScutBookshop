@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
 
     <!--<div style="padding-bottom: 50px;max-height: 400px;">-->
     <!--<el-input v-model="book_id" style="width: 300px;"></el-input>-->

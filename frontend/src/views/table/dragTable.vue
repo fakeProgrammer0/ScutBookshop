@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
     <!-- Note that row-key is necessary to get a correct row order. -->
     <el-table v-loading="listLoading" :data="list" row-key="id" border fit highlight-current-row style="width: 100%">
 

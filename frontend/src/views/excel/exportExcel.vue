@@ -1,6 +1,6 @@
 <template>
   <!-- $t is vue-i18n global function to translate lang -->
-  <div class="app-container">
+  <div class="search">
 
     <div>
       <FilenameOption v-model="filename" />

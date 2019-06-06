@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="search">
 
     <el-tag style="margin-bottom:20px;">
       <a href="https://github.com/PanJiaChen/vue-element-admin/tree/master/src/components/TreeTable" target="_blank">Documentation</a>
