@@ -19,7 +19,7 @@ CREATE TABLE `author_t`
     `intro`             text COMMENT '作者简介',
     `pic_url`           varchar(256) COMMENT '图片链接',
     `douban_pic_url`    varchar(256) COMMENT '豆瓣图片链接',
-    `douban_author_url` varchar(256) COMMENT '豆瓣链接',
+    `douban_author_url` varchar(256) COMMENT '豆瓣链接'
 );
 
 --

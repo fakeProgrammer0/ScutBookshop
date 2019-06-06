@@ -9,6 +9,9 @@ import os
 import json
 import mysql.connector
 
+host = "localhost"
+# host = "116.56.140.131"
+
 crawler_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
 crawler_headers = {"user-agent": crawler_ua}
 
@@ -21,8 +24,8 @@ author_t = "author_t"
 
 db_config = {
     'user': 'root',
-    'password': 'root0101',
-    'host': 'localhost',
+    'password': '123456',
+    'host': host,
     'database': 'bookshop',
     'raise_on_warnings': True
 }
@@ -31,21 +34,18 @@ cnx = mysql.connector.connect(**db_config)
 cursor = cnx.cursor()
 
 def get_pic_urls(table):
-    sql_read_pic_urls = f"select `id`, `pic_url` from `{table}` where `zimg_url` is NULL;"
+    sql_read_pic_urls = f"select `id`, `douban_pic_url` from `{table}` where `pic_url` is NULL;"
     df_image_urls = pd.read_sql_query(sql_read_pic_urls, cnx)
     id_2_pic_urls = {}
     for (t_id, pic_url) in df_image_urls.values:
         id_2_pic_urls[t_id] = pic_url
     return id_2_pic_urls
 
-zimg_base_url = "http://localhost:4869/"
-upload_image_url = "http://localhost:4869/upload"
+zimg_base_url = f"http://{host}:4869/"
+upload_image_url = f"http://{host}:4869/upload"
 interval = 2
 
-# html_res = 'b\'<html>\\n<head>\\n<title>Upload Result</title>\\n</head>\\n<body>\\n<h1>MD5: 6ec4ddbf1d62a9f78bbd81d37974454e</h1>\\nImage upload successfully! You can get this image via this address:<br/><br/>\\n<a href="/6ec4ddbf1d62a9f78bbd81d37974454e">http://yourhostname:4869/6ec4ddbf1d62a9f78bbd81d37974454e</a>?w=width&h=height&g=isgray&x=position_x&y=position_y&r=rotate&q=quality&f=format\\n</body>\\n</html>\\n\''
-
 md5_pattern = re.compile(r'MD5:\s*([a-f0-9]+)')
-# md5_match = md5_pattern.search(html_res)
 
 def download_store_images(table, id_2_pic_urls):
     id_2_zimg_url = {}
@@ -58,7 +58,8 @@ def download_store_images(table, id_2_pic_urls):
         except Exception as ex:
             print('download img failed: t_id = ' + str(t_id))
             print(ex)
-            break
+            # break
+            continue
         
         filename = image_url[str(image_url).rfind("/")+1:]
         # save_dir = __file__ + "/../images/"
@@ -88,7 +89,7 @@ def download_store_images(table, id_2_pic_urls):
         zimg_url = zimg_base_url + md5
         id_2_zimg_url[t_id] = zimg_url
 
-        sql_write_zimg_url = f"update {table} set `zimg_url` = '{zimg_url}'  where `id` = {t_id}"
+        sql_write_zimg_url = f"update {table} set `pic_url` = '{zimg_url}'  where `id` = {t_id}"
         try:
             print("before store db...")
             cursor.execute(sql_write_zimg_url)
@@ -109,7 +110,6 @@ if __name__ == "__main__":
     table = book_t
     id_2_pic_urls = get_pic_urls(table)
     id_2_zimg_url = download_store_images(table, id_2_pic_urls)
-    # write_zimg_urls(id_2_zimg_url)
     cnx.close()
     print("Done")
 
