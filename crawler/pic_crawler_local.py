@@ -34,14 +34,14 @@ cnx = mysql.connector.connect(**db_config)
 cursor = cnx.cursor()
 
 def get_pic_urls(table):
-    sql_read_pic_urls = f"select `id`, `douban_pic_url` from `{table}` where `pic_url` is NULL;"
+    sql_read_pic_urls = f"select `id`, `douban_pic_url` from `{table}` where `pic_url` is NULL and `douban_pic_url` is not NULL;"
     df_image_urls = pd.read_sql_query(sql_read_pic_urls, cnx)
     id_2_pic_urls = {}
     for (t_id, pic_url) in df_image_urls.values:
         id_2_pic_urls[t_id] = pic_url
     return id_2_pic_urls
 
-zimg_base_url = f"http://{host}:4869/"
+zimg_base_url = "http://116.56.140.131:4869/"
 upload_image_url = f"http://{host}:4869/upload"
 interval = 2
 
@@ -107,7 +107,8 @@ def download_store_images(table, id_2_pic_urls):
 
 
 if __name__ == "__main__":
-    table = book_t
+    # table = book_t
+    table = author_t
     id_2_pic_urls = get_pic_urls(table)
     id_2_zimg_url = download_store_images(table, id_2_pic_urls)
     cnx.close()
