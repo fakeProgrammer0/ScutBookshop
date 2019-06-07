@@ -16,12 +16,20 @@
         select `comment` from `short_comment_t` where `book_id` = #{id}
     </select>
 
+<!--    select B.id, B.title, B.author, B.price, B.douban_score, B.pic_url-->
+<!--    from (-->
+<!--    (select `id` from `tag_t` where `category_id` = #{category_id})-->
+<!--    as T join `book_tag_t` as BT on T.id = BT.tag_id-->
+<!--    ) join `book_t` as B on book_id = B.id-->
+<!--    order by `douban_score` desc-->
+<!--    limit 5;-->
+
     <select id="getAllBookInCatagory" resultType="BookSimpleDetail">
-      select * from `book_t` where `id`
+        select * from `book_t` where `id`
       in (select `book_id` as `id`
       from (select `id` from `tag_t` where category_id = #{category_id})
       as T join `book_tag_t` as BT on T.id = BT.tag_id
-      ) ORDER BY douban_score desc
+      ) ORDER BY douban_score desc limit 5;
     </select>
     <select id="getAllBookCategories" resultType="java.util.Map">
         select * from `category_t`

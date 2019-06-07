@@ -11,7 +11,7 @@ FORMAT: 1A
 
     + id: 997810(number) - 作者id
 
-### A1.获取图书详情信息 [GET]
+### A1.获取作者详情信息 [GET]
 
 + Response 200 (application/json)
 
@@ -100,6 +100,91 @@ FORMAT: 1A
                 }
             }
 
+## Author's Hot Books [/authors/{id}/hot-books{?count}]
+
++ Parameters
+    
+    + id: 997810 (number) - 作者id
+    + count: 5 (number) - 数量
+
+### A2.获取作者创作的热门图书 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": 200,
+                "msg": "OK",
+                "data": [
+                    {
+                        "id": "1770782",
+                        "title": "追风筝的人",
+                        "author": "[美]卡勒德·胡赛尼",
+                        "price": "29",
+                        "douban_score": "8.9",
+                        "pic_url": "http://116.56.140.131:4869/ec1b19632a79d9778a0a61b66b087363"
+                    },
+                    {
+                        "id": "2143732",
+                        "title": "灿烂千阳",
+                        "author": "[美]卡勒德·胡赛尼",
+                        "price": "28",
+                        "douban_score": "8.8",
+                        "pic_url": "http://116.56.140.131:4869/20d51b6868201369b24d9c7bc0191ac7"
+                    }
+                ]
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "number",
+                        "description": "消息状态码"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "消息简述"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "description": "图书概览",
+                            "properties": {
+                                "id": {
+                                    "type": "number",
+                                    "description": "豆瓣图书id"
+                                },                    
+                                "title": {
+                                    "type": "string",
+                                    "description": "书名"
+                                },
+                                "author": {
+                                    "type": "string",
+                                    "description": "作者"
+                                },
+                                "price": {
+                                    "type": "number",
+                                    "description": "价格"
+                                },
+                                "douban_score": {
+                                    "type": "number",
+                                    "description": "豆瓣评分"
+                                },
+                                "pic_url": {
+                                    "type": "string",
+                                    "description": "图片链接"
+                                }                   
+                            }
+                        }
+                    }
+                }
+            }
+
 # Group Books
 
 ## Book Detail [/books/{id}]
@@ -131,8 +216,9 @@ FORMAT: 1A
                     "price": 29.00,
                     "binding": "平装",
                     "douban_score": 8.9,
-                    "book_url": "https://book.douban.com/subject/1770782/",
-                    "pic_url": "https://img3.doubanio.com/view/subject/l/public/s1727290.jpg",
+                    "pic_url": "http://116.56.140.131:4869/ec1b19632a79d9778a0a61b66b087363",
+                    "douban_book_url": "https://book.douban.com/subject/1770782/",
+                    "douban_pic_url": "https://img3.doubanio.com/view/subject/l/public/s1727290.jpg",
                     "summary": "12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。 成年后的阿米尔始终无法原谅自己当年对哈桑的背叛。为了赎罪，阿米尔再度踏上暌违二十多年的故乡，希望能为不幸的好友尽最后一点心力，却发现一个惊天谎言，儿时的噩梦再度重演，阿米尔该如何抉择？ 故事如此残忍而又美丽，作者以温暖细腻的笔法勾勒人性的本质与救赎，读来令人荡气回肠。",
                     "author_intro": "卡勒德·胡赛尼（Khaled Hosseini），1965年生于阿富汗喀布尔市，后随父亲迁往美国。胡赛尼毕业于加州大学圣地亚哥医学系，现居加州。“立志拂去蒙在阿富汗普通民众面孔的尘灰，将背后灵魂的悸动展示给世人。”著有小说《追风筝的人》(The Kite Runner，2003）、《灿烂千阳》(A Thousand Splendid Suns，2007)、《群山回唱》（And the Mountains Echoed,2013）。作品全球销量超过4000万册。2006年，因其作品巨大的国际影响力，胡赛尼获得联合国人道主义奖，并受邀担任联合国难民署亲善大使。",
                     "ISBN": "9787208061644"
@@ -207,13 +293,17 @@ FORMAT: 1A
                                 "type": "number",
                                 "description": "豆瓣评分"
                             },
-                            "book_url": {
-                                "type": "string",
-                                "description": "豆瓣链接"
-                            },
                             "pic_url": {
                                 "type": "string",
                                 "description": "图片链接"
+                            },  
+                            "douban_book_url": {
+                                "type": "string",
+                                "description": "豆瓣图书链接"
+                            },
+                            "douban_pic_url": {
+                                "type": "string",
+                                "description": "豆瓣图片链接"
                             },                    
                             "summary": {
                                 "type": "string",
@@ -247,6 +337,22 @@ FORMAT: 1A
                     {
                         "id": 2,
                         "title": "流行"  
+                    },
+                    {
+                        "id": 3,
+                        "title": "文化"  
+                    },
+                    {
+                        "id": 4,
+                        "title": "生活"  
+                    },
+                    {
+                        "id": 5,
+                        "title": "经管"  
+                    },
+                    {
+                        "id": 6,
+                        "title": "科技"  
                     }
                 ]
             }
@@ -292,7 +398,7 @@ FORMAT: 1A
     
     + category_id: 1 (number) - 类别id
     + page: 1 (number) - 第几页
-    + per_page: 2 (number) - 每页的记录数量
+    + per_page: 5 (number) - 每页的记录数量
 
 ### B3.获取某一类别下的图书 [GET]
 
@@ -305,20 +411,44 @@ FORMAT: 1A
                 "msg": "OK",
                 "data": [
                     {
-                        "id": 1770782,
-                        "title": "追风筝的人",
-                        "author": "[美]卡勒德·胡赛尼",
-                        "price": 29.00,
-                        "douban_score": 8.9,
-                        "pic_url": "https://img3.doubanio.com/view/subject/l/public/s1727290.jpg"
+                        "id": "3162991",
+                        "title": "艺术的故事",
+                        "author": "[英]贡布里希",
+                        "price": "280",
+                        "douban_score": "9.6",
+                        "pic_url": "http://116.56.140.131:4869/bf55044147d8b1fafb2edd7b924d2e8a"
                     },
                     {
-                        "id": 1006197,
-                        "title": "哈姆莱特",
-                        "author": "[英]威廉·莎士比亚",
-                        "price": 7,
-                        "douban_score": 8.5,
-                        "pic_url": "https://img1.doubanio.com/view/subject/l/public/s27009357.jpg",
+                        "id": "7000811",
+                        "title": "国史大纲（上下新校本）",
+                        "author": "钱穆",
+                        "price": "138",
+                        "douban_score": "9.6",
+                        "pic_url": "http://116.56.140.131:4869/4ef616525b132a3fd43401c2dc9e6bf8"
+                    },
+                    {
+                        "id": "26126545",
+                        "title": "哈利·波特与死亡圣器（纪念版）",
+                        "author": "[英]J·K·罗琳",
+                        "price": "66",
+                        "douban_score": "9.5",
+                        "pic_url": "http://116.56.140.131:4869/ab9b673ed0e191be307ef50dc4434b22"
+                    },
+                    {
+                        "id": "21979017",
+                        "title": "魔戒",
+                        "author": "[英]J·R·R·托尔金",
+                        "price": "169",
+                        "douban_score": "9.5",
+                        "pic_url": "http://116.56.140.131:4869/eb1ce9801cae571c4c5552037a3dd32e"
+                    },
+                    {
+                        "id": "2988964",
+                        "title": "管錐編（全四冊）",
+                        "author": "钱钟书",
+                        "price": "172",
+                        "douban_score": "9.5",
+                        "pic_url": "http://116.56.140.131:4869/6f1dea307be6a845675e923eca2112ed"
                     }
                 ]
             }
@@ -439,12 +569,36 @@ FORMAT: 1A
                 "msg": "OK",
                 "data": [
                     {
-                        "id": 1,
+                        "id": "1",
                         "title": "小说"
                     },
                     {
-                        "id": 2,
+                        "id": "2",
+                        "title": "外国文学"
+                    },
+                    {
+                        "id": "98",
                         "title": "成长"
+                    },
+                    {
+                        "id": "1841",
+                        "title": "救赎"
+                    },
+                    {
+                        "id": "2039",
+                        "title": "人性"
+                    },
+                    {
+                        "id": "2183",
+                        "title": "卡勒德·胡赛尼"
+                    },
+                    {
+                        "id": "2217",
+                        "title": "阿富汗"
+                    },
+                    {
+                        "id": "2271",
+                        "title": "追风筝的人"
                     }
                 ]
             }
@@ -482,6 +636,393 @@ FORMAT: 1A
                 }
             }
 
+## All Categories with Their Hot Books [/books/categories-books]
+首页图书概览（临时接口）
+
+### B6.获取图书类别与类别下的热门图书 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "status": 200,
+              "msg": "OK",
+              "data": [
+                {
+                  "books": [
+                    {
+                      "id": 3162991,
+                      "title": "艺术的故事",
+                      "author": "[英]贡布里希",
+                      "price": 280,
+                      "douban_score": 9.6,
+                      "pic_url": "http://116.56.140.131:4869/bf55044147d8b1fafb2edd7b924d2e8a",
+                      "isbn": "9787807463726 "
+                    },
+                    {
+                      "id": 7000811,
+                      "title": "国史大纲（上下新校本）",
+                      "author": "钱穆",
+                      "price": 138,
+                      "douban_score": 9.6,
+                      "pic_url": "http://116.56.140.131:4869/4ef616525b132a3fd43401c2dc9e6bf8",
+                      "isbn": "9787510809941 "
+                    },
+                    {
+                      "id": 1009789,
+                      "title": "道德经",
+                      "author": "老子",
+                      "price": 4.3,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/37acb96648e980bcc5ef822645d92902",
+                      "isbn": "9787212003760 "
+                    },
+                    {
+                      "id": 2988964,
+                      "title": "管錐編（全四冊）",
+                      "author": "钱钟书",
+                      "price": 172,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/6f1dea307be6a845675e923eca2112ed",
+                      "isbn": "9787108027467 "
+                    },
+                    {
+                      "id": 26435510,
+                      "title": "雕刻时光",
+                      "author": "[俄]安德烈·塔可夫斯基",
+                      "price": 45,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/e0d939955f04d36a27f6aec336c9085a",
+                      "isbn": "9787544278591 "
+                    }
+                  ],
+                  "id": 3,
+                  "title": "文化"
+                },
+                {
+                  "books": [
+                    {
+                      "id": 3162991,
+                      "title": "艺术的故事",
+                      "author": "[英]贡布里希",
+                      "price": 280,
+                      "douban_score": 9.6,
+                      "pic_url": "http://116.56.140.131:4869/bf55044147d8b1fafb2edd7b924d2e8a",
+                      "isbn": "9787807463726 "
+                    },
+                    {
+                      "id": 7000811,
+                      "title": "国史大纲（上下新校本）",
+                      "author": "钱穆",
+                      "price": 138,
+                      "douban_score": 9.6,
+                      "pic_url": "http://116.56.140.131:4869/4ef616525b132a3fd43401c2dc9e6bf8",
+                      "isbn": "9787510809941 "
+                    },
+                    {
+                      "id": 2988964,
+                      "title": "管錐編（全四冊）",
+                      "author": "钱钟书",
+                      "price": 172,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/6f1dea307be6a845675e923eca2112ed",
+                      "isbn": "9787108027467 "
+                    },
+                    {
+                      "id": 26126545,
+                      "title": "哈利·波特与死亡圣器（纪念版）",
+                      "author": "[英]J·K·罗琳",
+                      "price": 66,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/ab9b673ed0e191be307ef50dc4434b22",
+                      "isbn": "9787020103355 "
+                    },
+                    {
+                      "id": 1009789,
+                      "title": "道德经",
+                      "author": "老子",
+                      "price": 4.3,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/37acb96648e980bcc5ef822645d92902",
+                      "isbn": "9787212003760 "
+                    }
+                  ],
+                  "id": 1,
+                  "title": "文学"
+                },
+                {
+                  "books": [
+                    {
+                      "id": 26126545,
+                      "title": "哈利·波特与死亡圣器（纪念版）",
+                      "author": "[英]J·K·罗琳",
+                      "price": 66,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/ab9b673ed0e191be307ef50dc4434b22",
+                      "isbn": "9787020103355 "
+                    },
+                    {
+                      "id": 21979017,
+                      "title": "魔戒",
+                      "author": "[英]J·R·R·托尔金",
+                      "price": 169,
+                      "douban_score": 9.5,
+                      "pic_url": "http://116.56.140.131:4869/eb1ce9801cae571c4c5552037a3dd32e",
+                      "isbn": "9787208113039 "
+                    },
+                    {
+                      "id": 1336330,
+                      "title": "冰与火之歌（卷一）",
+                      "author": "[美]乔治·R·R·马丁",
+                      "price": 68,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/6dcb6498b9301c68e986d78626d0ef4b",
+                      "isbn": "9787536671256 "
+                    },
+                    {
+                      "id": 3066477,
+                      "title": "三体Ⅱ",
+                      "author": "刘慈欣",
+                      "price": 32,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/e61c9e624b943961d4409d6e4cf551f7",
+                      "isbn": "9787536693968 "
+                    },
+                    {
+                      "id": 26126139,
+                      "title": "哈利·波特与火焰杯（纪念版）",
+                      "author": "[英]J·K·罗琳",
+                      "price": 56,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/002a65099a7594e104c4c9ddd69d2d8a",
+                      "isbn": "9787020103324 "
+                    }
+                  ],
+                  "id": 2,
+                  "title": "流行"
+                },
+                {
+                  "books": [
+                    {
+                      "id": 1068920,
+                      "title": "飘",
+                      "author": "[美]玛格丽特·米切尔",
+                      "price": 40,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/7c76c4f9db70f046b08b906c7a79b2b8",
+                      "isbn": "9787806570920 "
+                    },
+                    {
+                      "id": 6710437,
+                      "title": "撒哈拉的故事",
+                      "author": "三毛",
+                      "price": 24,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/0db27142987a9174726731445b2fcbe8",
+                      "isbn": "9787530211113 "
+                    },
+                    {
+                      "id": 1018426,
+                      "title": "服装缝制图解大全",
+                      "author": "克里斯·杰弗莉",
+                      "price": 198,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/29ffe12a554a9c9dec6e4f3ca8827d96",
+                      "isbn": "9787506415408 "
+                    },
+                    {
+                      "id": 7067916,
+                      "title": "施瓦辛格健身全书",
+                      "author": "[美]阿诺德·施瓦辛格",
+                      "price": 98,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/e9dcb7be55441f3682bd269888e9dcef",
+                      "isbn": "9787530455234 "
+                    },
+                    {
+                      "id": 27204805,
+                      "title": "那不勒斯故事四部曲",
+                      "author": "[意]埃莱娜·费兰特",
+                      "price": 0,
+                      "douban_score": 9.2,
+                      "pic_url": "http://116.56.140.131:4869/041b829646621b0068e197e5c8ef1120",
+                      "isbn": "9789862138533 "
+                    }
+                  ],
+                  "id": 4,
+                  "title": "生活"
+                },
+                {
+                  "books": [
+                    {
+                      "id": 1291204,
+                      "title": "哥德尔、艾舍尔、巴赫",
+                      "author": "[美]侯世达",
+                      "price": 88,
+                      "douban_score": 9.4,
+                      "pic_url": "http://116.56.140.131:4869/5e364a8975cddfd44c94ce907061f9b6",
+                      "isbn": "9787100013239 "
+                    },
+                    {
+                      "id": 1477390,
+                      "title": "代码大全（第2版）",
+                      "author": "[美]史蒂夫·迈克康奈尔",
+                      "price": 128,
+                      "douban_score": 9.3,
+                      "pic_url": "http://116.56.140.131:4869/0fb6c5f0605af6545a8fa11835ae773b",
+                      "isbn": "9787121022982 "
+                    },
+                    {
+                      "id": 1467022,
+                      "title": "上帝掷骰子吗",
+                      "author": "曹天元",
+                      "price": 32,
+                      "douban_score": 9.2,
+                      "pic_url": "http://116.56.140.131:4869/2adb575c385ef8299a7069a408e51227",
+                      "isbn": "9787538276374 "
+                    },
+                    {
+                      "id": 2243615,
+                      "title": "Head First 设计模式（中文版）",
+                      "author": "[美]弗里曼",
+                      "price": 98,
+                      "douban_score": 9.2,
+                      "pic_url": "http://116.56.140.131:4869/fcb02cf64a6a21af4ba33ac45419b53f",
+                      "isbn": "9787508353937 "
+                    },
+                    {
+                      "id": 4822685,
+                      "title": "编码",
+                      "author": "[美]CharlesPetzold",
+                      "price": 55,
+                      "douban_score": 9.2,
+                      "pic_url": "http://116.56.140.131:4869/945b2686bd0367309f78ef8fbc455df4",
+                      "isbn": "9787121106101 "
+                    }
+                  ],
+                  "id": 6,
+                  "title": "科技"
+                },
+                {
+                  "books": [
+                    {
+                      "id": 3719533,
+                      "title": "经济学原理",
+                      "author": "[美]N·格里高利·曼昆",
+                      "price": 54,
+                      "douban_score": 9.4,
+                      "pic_url": "http://116.56.140.131:4869/f3c3867a241ee8e153c898d7f6e605dd",
+                      "isbn": "9787301150894 "
+                    },
+                    {
+                      "id": 5939751,
+                      "title": "货币金融学",
+                      "author": "弗雷德里克·S·米什金",
+                      "price": 79,
+                      "douban_score": 9.2,
+                      "pic_url": "http://116.56.140.131:4869/22c1965d95c46b2aa5360916c9bdccb6",
+                      "isbn": "9787300129266 "
+                    },
+                    {
+                      "id": 1443638,
+                      "title": "自由宪章",
+                      "author": "[英]哈耶克",
+                      "price": 38,
+                      "douban_score": 9.1,
+                      "pic_url": "http://116.56.140.131:4869/ca915b6352cdada9e2b38653b3ac58ce",
+                      "isbn": "9787500424178 "
+                    },
+                    {
+                      "id": 25810506,
+                      "title": "史蒂夫·乔布斯传（修订版）",
+                      "author": "[美]沃尔特·艾萨克森",
+                      "price": 68,
+                      "douban_score": 9.1,
+                      "pic_url": "http://116.56.140.131:4869/906a116607d1ad39a25339e645d3a0f0",
+                      "isbn": "9787508643298 "
+                    },
+                    {
+                      "id": 1005813,
+                      "title": "自由秩序原理",
+                      "author": "[英]弗里德利希·冯·哈耶克",
+                      "price": 28,
+                      "douban_score": 9.1,
+                      "pic_url": "http://116.56.140.131:4869/20ad689b873b68c76fbb1230817a3cc0",
+                      "isbn": "9787108011046 "
+                    }
+                  ],
+                  "id": 5,
+                  "title": "经管"
+                }
+              ]
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "number",
+                        "description": "消息状态码"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "description": "消息简述"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "propertities": {
+                                "id": {
+                                    "type": "number",
+                                    "description": "类别id"
+                                },                    
+                                "title": {
+                                    "type": "string",
+                                    "description": "类别名称"
+                                },
+                                "books": {
+                                    "type": "array",
+                                    "description": "该类别下的热门图书",
+                                    "items": {
+                                        "type": "object",
+                                        "description": "图书概览",
+                                        "properties": {
+                                            "id": {
+                                                "type": "number",
+                                                "description": "豆瓣图书id"
+                                            },                    
+                                            "title": {
+                                                "type": "string",
+                                                "description": "书名"
+                                            },
+                                            "author": {
+                                                "type": "string",
+                                                "description": "作者"
+                                            },
+                                            "price": {
+                                                "type": "number",
+                                                "description": "价格"
+                                            },
+                                            "douban_score": {
+                                                "type": "number",
+                                                "description": "豆瓣评分"
+                                            },
+                                            "pic_url": {
+                                                "type": "string",
+                                                "description": "图片链接"
+                                            }                   
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
 
 

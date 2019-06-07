@@ -1,9 +1,9 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://107.191.52.220:3306/bookshop?requireSSL=true&useSSL=true&verifyServerCertificate=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: root0101
+    url: ENC(Z8cVIryutPOYhqUC6nuO/S8vK4pkDmsr2zmltqgf1Eqrnu3a/qe9ZiXuFGeK6obvko0UOoqSqWIFp1QSlAQKft3NlrjRHEJwBxZFc5JHoN99TI7mywcecNrXzciNXIfPxJhloZRlkL/EdwuN7f0Fdt6NcOILvlPcVqUejLNHXulnp8l417cEBFXCNh/2/GRA/Gg6n42ZNjg7PEB7vvcpSFsAjNXv1WwVDV8ZtyGzShg=)
+    username: ENC(NiBhJGaEbtrqWQN9IZ7qMg==)
+    password: ENC(HlxEalBgg7zdQQBE48oYhg==)
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:

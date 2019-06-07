@@ -1,5 +1,5 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>ScutBookshop Rest API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authors">Authors</a></div><div class="collapse-content"><ul><li><a href="#authors-author-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>A1.获取图书详情信息</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#books">Books</a></div><div class="collapse-content"><ul><li><a href="#books-book-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B1.获取图书详情信息</a></li><li><a href="#books-book-categories-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B2.获取图书类别</a></li><li><a href="#books-category-s-books-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B3.获取某一类别下的图书</a></li><li><a href="#books-book-s-douban-short-comment-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B4.获取图书的豆瓣短评论</a></li><li><a href="#books-book-s-tags-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B5.获取图书的标签</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">ScutBookshop Rest API</h1></header><section id="authors" class="resource-group"><h2 class="group-heading">Authors <a href="#authors" class="permalink">&para;</a></h2><div id="authors-author-detail" class="resource"><h3 class="resource-heading">Author Detail <a href="#authors-author-detail" class="permalink">&nbsp;&para;</a></h3><p>作者详情信息</p>
-<div id="authors-author-detail-get" class="action get"><h4 class="action-heading"><div class="name">A1.获取图书详情信息</div><a href="#authors-author-detail-get" class="method get">GET</a><code class="uri">/authors/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/authors/<span class="hljs-attribute" title="id">997810</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>997810</span></span><p>作者id</p>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>ScutBookshop Rest API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authors">Authors</a></div><div class="collapse-content"><ul><li><a href="#authors-author-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>A1.获取作者详情信息</a></li><li><a href="#authors-author-s-hot-books-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>A2.获取作者创作的热门图书</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#books">Books</a></div><div class="collapse-content"><ul><li><a href="#books-book-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B1.获取图书详情信息</a></li><li><a href="#books-book-categories-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B2.获取图书类别</a></li><li><a href="#books-category-s-books-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B3.获取某一类别下的图书</a></li><li><a href="#books-book-s-douban-short-comment-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B4.获取图书的豆瓣短评论</a></li><li><a href="#books-book-s-tags-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B5.获取图书的标签</a></li><li><a href="#books-all-categories-with-their-hot-books-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>B6.获取图书类别与类别下的热门图书</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">ScutBookshop Rest API</h1></header><section id="authors" class="resource-group"><h2 class="group-heading">Authors <a href="#authors" class="permalink">&para;</a></h2><div id="authors-author-detail" class="resource"><h3 class="resource-heading">Author Detail <a href="#authors-author-detail" class="permalink">&nbsp;&para;</a></h3><p>作者详情信息</p>
+<div id="authors-author-detail-get" class="action get"><h4 class="action-heading"><div class="name">A1.获取作者详情信息</div><a href="#authors-author-detail-get" class="method get">GET</a><code class="uri">/authors/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/authors/<span class="hljs-attribute" title="id">997810</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>997810</span></span><p>作者id</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
   "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
@@ -77,6 +77,74 @@
             </span>}
         </span>}
     </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="authors-author-s-hot-books" class="resource"><h3 class="resource-heading">Author's Hot Books <a href="#authors-author-s-hot-books" class="permalink">&nbsp;&para;</a></h3><div id="authors-author-s-hot-books-get" class="action get"><h4 class="action-heading"><div class="name">A2.获取作者创作的热门图书</div><a href="#authors-author-s-hot-books-get" class="method get">GET</a><code class="uri">/authors/{id}/hot-books{?count}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/authors/<span class="hljs-attribute" title="id">997810</span>/hot-books?<span class="hljs-attribute">count=</span><span class="hljs-literal">5</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>997810</span></span><p>作者id</p>
+</dd><dt>count</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5</span></span><p>数量</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1770782"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"追风筝的人"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]卡勒德·胡赛尼"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-string">"29"</span></span>,
+      "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-string">"8.9"</span></span>,
+      "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/ec1b19632a79d9778a0a61b66b087363"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2143732"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"灿烂千阳"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]卡勒德·胡赛尼"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-string">"28"</span></span>,
+      "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-string">"8.8"</span></span>,
+      "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/20d51b6868201369b24d9c7bc0191ac7"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息状态码"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">msg</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息简述"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图书概览"</span></span>,
+        "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣图书id"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"书名"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"作者"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"价格"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣评分"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图片链接"</span>
+          </span>}
+        </span>}
+      </span>}
+    </span>}
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="books" class="resource-group"><h2 class="group-heading">Books <a href="#books" class="permalink">&para;</a></h2><div id="books-book-detail" class="resource"><h3 class="resource-heading">Book Detail <a href="#books-book-detail" class="permalink">&nbsp;&para;</a></h3><p>图书详情信息</p>
 <div id="books-book-detail-get" class="action get"><h4 class="action-heading"><div class="name">B1.获取图书详情信息</div><a href="#books-book-detail-get" class="method get">GET</a><code class="uri">/books/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/books/<span class="hljs-attribute" title="id">1770782</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1770782</span></span><p>图书id</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -95,8 +163,9 @@
     "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">29</span></span>,
     "<span class="hljs-attribute">binding</span>": <span class="hljs-value"><span class="hljs-string">"平装"</span></span>,
     "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">8.9</span></span>,
-    "<span class="hljs-attribute">book_url</span>": <span class="hljs-value"><span class="hljs-string">"https://book.douban.com/subject/1770782/"</span></span>,
-    "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"https://img3.doubanio.com/view/subject/l/public/s1727290.jpg"</span></span>,
+    "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/ec1b19632a79d9778a0a61b66b087363"</span></span>,
+    "<span class="hljs-attribute">douban_book_url</span>": <span class="hljs-value"><span class="hljs-string">"https://book.douban.com/subject/1770782/"</span></span>,
+    "<span class="hljs-attribute">douban_pic_url</span>": <span class="hljs-value"><span class="hljs-string">"https://img3.doubanio.com/view/subject/l/public/s1727290.jpg"</span></span>,
     "<span class="hljs-attribute">summary</span>": <span class="hljs-value"><span class="hljs-string">"12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。 成年后的阿米尔始终无法原谅自己当年对哈桑的背叛。为了赎罪，阿米尔再度踏上暌违二十多年的故乡，希望能为不幸的好友尽最后一点心力，却发现一个惊天谎言，儿时的噩梦再度重演，阿米尔该如何抉择？ 故事如此残忍而又美丽，作者以温暖细腻的笔法勾勒人性的本质与救赎，读来令人荡气回肠。"</span></span>,
     "<span class="hljs-attribute">author_intro</span>": <span class="hljs-value"><span class="hljs-string">"卡勒德·胡赛尼（Khaled Hosseini），1965年生于阿富汗喀布尔市，后随父亲迁往美国。胡赛尼毕业于加州大学圣地亚哥医学系，现居加州。“立志拂去蒙在阿富汗普通民众面孔的尘灰，将背后灵魂的悸动展示给世人。”著有小说《追风筝的人》(The Kite Runner，2003）、《灿烂千阳》(A Thousand Splendid Suns，2007)、《群山回唱》（And the Mountains Echoed,2013）。作品全球销量超过4000万册。2006年，因其作品巨大的国际影响力，胡赛尼获得联合国人道主义奖，并受邀担任联合国难民署亲善大使。"</span></span>,
     "<span class="hljs-attribute">ISBN</span>": <span class="hljs-value"><span class="hljs-string">"9787208061644"</span>
@@ -167,13 +236,17 @@
                     "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
                     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣评分"</span>
                 </span>}</span>,
-                "<span class="hljs-attribute">book_url</span>": <span class="hljs-value">{
-                    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣链接"</span>
-                </span>}</span>,
                 "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value">{
                     "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
                     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图片链接"</span>
+                </span>}</span>,  
+                "<span class="hljs-attribute">douban_book_url</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣图书链接"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">douban_pic_url</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣图片链接"</span>
                 </span>}</span>,                    
                 "<span class="hljs-attribute">summary</span>": <span class="hljs-value">{
                     "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
@@ -197,6 +270,22 @@
     {
       "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
       "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"流行"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"文化"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"生活"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"经管"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"科技"</span>
     </span>}
   ]
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
@@ -229,75 +318,99 @@
         </span>}
     </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="books-category-s-books" class="resource"><h3 class="resource-heading">Category's Books <a href="#books-category-s-books" class="permalink">&nbsp;&para;</a></h3><p>获取特定类别下的图书，按评分（ <code>douban_score</code> ）从高到低排序</p>
-<div id="books-category-s-books-get" class="action get"><h4 class="action-heading"><div class="name">B3.获取某一类别下的图书</div><a href="#books-category-s-books-get" class="method get">GET</a><code class="uri">/books/categories/{category_id}{?page,per_page}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/books/categories/<span class="hljs-attribute" title="category_id">1</span>?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">per_page=</span><span class="hljs-literal">2</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>category_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>类别id</p>
+<div id="books-category-s-books-get" class="action get"><h4 class="action-heading"><div class="name">B3.获取某一类别下的图书</div><a href="#books-category-s-books-get" class="method get">GET</a><code class="uri">/books/categories/{category_id}{?page,per_page}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/books/categories/<span class="hljs-attribute" title="category_id">1</span>?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">per_page=</span><span class="hljs-literal">5</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>category_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>类别id</p>
 </dd><dt>page</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>第几页</p>
-</dd><dt>per_page</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2</span></span><p>每页的记录数量</p>
+</dd><dt>per_page</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5</span></span><p>每页的记录数量</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
-    "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
-    "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
-        {
-            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1770782</span></span>,
-            "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"追风筝的人"</span></span>,
-            "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]卡勒德·胡赛尼"</span></span>,
-            "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">29.00</span></span>,
-            "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">8.9</span></span>,
-            "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"https://img3.doubanio.com/view/subject/l/public/s1727290.jpg"</span>
-        </span>},
-        {
-            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1006197</span></span>,
-            "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"哈姆莱特"</span></span>,
-            "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]威廉·莎士比亚"</span></span>,
-            "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
-            "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">8.5</span></span>,
-            "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"https://img1.doubanio.com/view/subject/l/public/s27009357.jpg"</span></span>,
-        }
-    ]
-</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
-    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-    "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-        "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
-            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息状态码"</span>
-        </span>}</span>,
-        "<span class="hljs-attribute">msg</span>": <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息简述"</span>
-        </span>}</span>,
-        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
-            "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
-                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图书概览"</span></span>,
-                "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
-                    "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
-                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
-                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣图书id"</span>
-                    </span>}</span>,                    
-                    "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
-                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"书名"</span>
-                    </span>}</span>,
-                    "<span class="hljs-attribute">author</span>": <span class="hljs-value">{
-                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"作者"</span>
-                    </span>}</span>,
-                    "<span class="hljs-attribute">price</span>": <span class="hljs-value">{
-                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
-                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"价格"</span>
-                    </span>}</span>,
-                    "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value">{
-                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
-                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣评分"</span>
-                    </span>}</span>,
-                    "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value">{
-                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图片链接"</span>
-                    </span>}                   
-                </span>}
-            </span>}
-        </span>}
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"3162991"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"艺术的故事"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]贡布里希"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-string">"280"</span></span>,
+      "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-string">"9.6"</span></span>,
+      "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/bf55044147d8b1fafb2edd7b924d2e8a"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"7000811"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"国史大纲（上下新校本）"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"钱穆"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-string">"138"</span></span>,
+      "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-string">"9.6"</span></span>,
+      "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/4ef616525b132a3fd43401c2dc9e6bf8"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"26126545"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"哈利·波特与死亡圣器（纪念版）"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]J·K·罗琳"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-string">"66"</span></span>,
+      "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-string">"9.5"</span></span>,
+      "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/ab9b673ed0e191be307ef50dc4434b22"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"21979017"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"魔戒"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]J·R·R·托尔金"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-string">"169"</span></span>,
+      "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-string">"9.5"</span></span>,
+      "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/eb1ce9801cae571c4c5552037a3dd32e"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2988964"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"管錐編（全四冊）"</span></span>,
+      "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"钱钟书"</span></span>,
+      "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-string">"172"</span></span>,
+      "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-string">"9.5"</span></span>,
+      "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/6f1dea307be6a845675e923eca2112ed"</span>
     </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息状态码"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">msg</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息简述"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图书概览"</span></span>,
+        "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣图书id"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"书名"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"作者"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"价格"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣评分"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图片链接"</span>
+          </span>}
+        </span>}
+      </span>}
+    </span>}
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="books-book-s-douban-short-comment" class="resource"><h3 class="resource-heading">Book's Douban Short Comment <a href="#books-book-s-douban-short-comment" class="permalink">&nbsp;&para;</a></h3><p>图书的豆瓣短评论</p>
 <div id="books-book-s-douban-short-comment-get" class="action get"><h4 class="action-heading"><div class="name">B4.获取图书的豆瓣短评论</div><a href="#books-book-s-douban-short-comment-get" class="method get">GET</a><code class="uri">/books/{id}/short-comments</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/books/<span class="hljs-attribute" title="id">1770782</span>/short-comments</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1770782</span></span><p>图书id</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -336,12 +449,36 @@
   "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
     {
-      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
       "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"小说"</span>
     </span>},
     {
-      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"外国文学"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"98"</span></span>,
       "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"成长"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"1841"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"救赎"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2039"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"人性"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2183"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"卡勒德·胡赛尼"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2217"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"阿富汗"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2271"</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"追风筝的人"</span>
     </span>}
   ]
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
@@ -373,6 +510,380 @@
             </span>}
         </span>}
     </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="books-all-categories-with-their-hot-books" class="resource"><h3 class="resource-heading">All Categories with Their Hot Books <a href="#books-all-categories-with-their-hot-books" class="permalink">&nbsp;&para;</a></h3><p>首页图书概览（临时接口）</p>
+<div id="books-all-categories-with-their-hot-books-get" class="action get"><h4 class="action-heading"><div class="name">B6.获取图书类别与类别下的热门图书</div><a href="#books-all-categories-with-their-hot-books-get" class="method get">GET</a><code class="uri">/books/categories-books</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/books/categories-books</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">msg</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">books</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3162991</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"艺术的故事"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]贡布里希"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">280</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.6</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/bf55044147d8b1fafb2edd7b924d2e8a"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787807463726 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7000811</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"国史大纲（上下新校本）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"钱穆"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">138</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.6</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/4ef616525b132a3fd43401c2dc9e6bf8"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787510809941 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1009789</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"道德经"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"老子"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">4.3</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/37acb96648e980bcc5ef822645d92902"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787212003760 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2988964</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"管錐編（全四冊）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"钱钟书"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">172</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/6f1dea307be6a845675e923eca2112ed"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787108027467 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">26435510</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"雕刻时光"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[俄]安德烈·塔可夫斯基"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">45</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/e0d939955f04d36a27f6aec336c9085a"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787544278591 "</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"文化"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">books</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3162991</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"艺术的故事"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]贡布里希"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">280</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.6</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/bf55044147d8b1fafb2edd7b924d2e8a"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787807463726 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7000811</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"国史大纲（上下新校本）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"钱穆"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">138</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.6</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/4ef616525b132a3fd43401c2dc9e6bf8"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787510809941 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2988964</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"管錐編（全四冊）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"钱钟书"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">172</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/6f1dea307be6a845675e923eca2112ed"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787108027467 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">26126545</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"哈利·波特与死亡圣器（纪念版）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]J·K·罗琳"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">66</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/ab9b673ed0e191be307ef50dc4434b22"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787020103355 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1009789</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"道德经"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"老子"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">4.3</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/37acb96648e980bcc5ef822645d92902"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787212003760 "</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"文学"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">books</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">26126545</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"哈利·波特与死亡圣器（纪念版）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]J·K·罗琳"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">66</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/ab9b673ed0e191be307ef50dc4434b22"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787020103355 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">21979017</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"魔戒"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]J·R·R·托尔金"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">169</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.5</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/eb1ce9801cae571c4c5552037a3dd32e"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787208113039 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1336330</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"冰与火之歌（卷一）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]乔治·R·R·马丁"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">68</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/6dcb6498b9301c68e986d78626d0ef4b"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787536671256 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3066477</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"三体Ⅱ"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"刘慈欣"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">32</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/e61c9e624b943961d4409d6e4cf551f7"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787536693968 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">26126139</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"哈利·波特与火焰杯（纪念版）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]J·K·罗琳"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">56</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/002a65099a7594e104c4c9ddd69d2d8a"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787020103324 "</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"流行"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">books</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1068920</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"飘"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]玛格丽特·米切尔"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">40</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/7c76c4f9db70f046b08b906c7a79b2b8"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787806570920 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">6710437</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"撒哈拉的故事"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"三毛"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">24</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/0db27142987a9174726731445b2fcbe8"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787530211113 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1018426</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"服装缝制图解大全"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"克里斯·杰弗莉"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">198</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/29ffe12a554a9c9dec6e4f3ca8827d96"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787506415408 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7067916</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"施瓦辛格健身全书"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]阿诺德·施瓦辛格"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">98</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/e9dcb7be55441f3682bd269888e9dcef"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787530455234 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">27204805</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"那不勒斯故事四部曲"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[意]埃莱娜·费兰特"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.2</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/041b829646621b0068e197e5c8ef1120"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9789862138533 "</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"生活"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">books</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1291204</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"哥德尔、艾舍尔、巴赫"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]侯世达"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">88</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.4</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/5e364a8975cddfd44c94ce907061f9b6"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787100013239 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1477390</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"代码大全（第2版）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]史蒂夫·迈克康奈尔"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">128</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.3</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/0fb6c5f0605af6545a8fa11835ae773b"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787121022982 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1467022</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"上帝掷骰子吗"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"曹天元"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">32</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.2</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/2adb575c385ef8299a7069a408e51227"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787538276374 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2243615</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Head First 设计模式（中文版）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]弗里曼"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">98</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.2</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/fcb02cf64a6a21af4ba33ac45419b53f"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787508353937 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4822685</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"编码"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]CharlesPetzold"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">55</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.2</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/945b2686bd0367309f78ef8fbc455df4"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787121106101 "</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"科技"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">books</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3719533</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"经济学原理"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]N·格里高利·曼昆"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">54</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.4</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/f3c3867a241ee8e153c898d7f6e605dd"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787301150894 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">5939751</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"货币金融学"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"弗雷德里克·S·米什金"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">79</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.2</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/22c1965d95c46b2aa5360916c9bdccb6"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787300129266 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1443638</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"自由宪章"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]哈耶克"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">38</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.1</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/ca915b6352cdada9e2b38653b3ac58ce"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787500424178 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">25810506</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"史蒂夫·乔布斯传（修订版）"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[美]沃尔特·艾萨克森"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">68</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.1</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/906a116607d1ad39a25339e645d3a0f0"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787508643298 "</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1005813</span></span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"自由秩序原理"</span></span>,
+          "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"[英]弗里德利希·冯·哈耶克"</span></span>,
+          "<span class="hljs-attribute">price</span>": <span class="hljs-value"><span class="hljs-number">28</span></span>,
+          "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value"><span class="hljs-number">9.1</span></span>,
+          "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value"><span class="hljs-string">"http://116.56.140.131:4869/20ad689b873b68c76fbb1230817a3cc0"</span></span>,
+          "<span class="hljs-attribute">isbn</span>": <span class="hljs-value"><span class="hljs-string">"9787108011046 "</span>
+        </span>}
+      ]</span>,
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"经管"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息状态码"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">msg</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"消息简述"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+        "<span class="hljs-attribute">propertities</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"类别id"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"类别名称"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">books</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"该类别下的热门图书"</span></span>,
+            "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+              "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图书概览"</span></span>,
+              "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣图书id"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"书名"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">author</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"作者"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">price</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"价格"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">douban_score</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"豆瓣评分"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">pic_url</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"图片链接"</span>
+                </span>}
+              </span>}
+            </span>}
+          </span>}
+        </span>}
+      </span>}
+    </span>}
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 08 Jun 2019</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';

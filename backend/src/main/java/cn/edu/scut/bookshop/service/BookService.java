@@ -40,7 +40,7 @@ public class BookService
         List<Map<String, Object>> bookCategories = bookDao.getAllBookCategories();
         for(Map<String, Object> categories: bookCategories)
         {
-            PageHelper.startPage(1, 5);
+//            PageHelper.startPage(1, 5);
             List<BookSimpleDetail> books = bookDao.getAllBookInCatagory((int)categories.get("id"));
             categories.put("books", books);
         }

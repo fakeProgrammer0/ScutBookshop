@@ -14,9 +14,9 @@ public class EncryptTest extends BookshopApplicationTests
     @Test
     public void generateKeys()
     {
-        String ENC_url = encryptor.encrypt("jdbc:mysql://107.191.52.220:3306/bookshop?requireSSL=true&useSSL=true&verifyServerCertificate=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8");
+        String ENC_url = encryptor.encrypt("jdbc:mysql://116.56.140.131:3306/bookshop?requireSSL=true&useSSL=true&verifyServerCertificate=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8");
         String ENC_username = encryptor.encrypt("root");
-        String ENC_password = encryptor.encrypt("root0101");
+        String ENC_password = encryptor.encrypt("123456");
         System.out.printf("url: ENC(%s)\n", ENC_url);
         System.out.printf("username: ENC(%s)\n", ENC_username);
         System.out.printf("password: ENC(%s)\n", ENC_password);
