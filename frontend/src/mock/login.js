@@ -37,5 +37,5 @@ export default {
       return false
     }
   },
-  logout: () => 'success'
+  Login: () => 'success'
 }

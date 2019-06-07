@@ -1,9 +1,6 @@
 <!--基本html代码区域-->
 <template>
-  <div class="login" style="margin-top: 100px">
-    <div class="login">
-
-      <el-card class="box-card" shadow="always">
+    <div v-if="Account==true">
         <el-form :model="form" status-icon :rules="rules" ref="form" label-width="100px" class="demo-ruleForm">
           <el-row type="flex" justify="center">
             <h2>登录</h2>
@@ -23,9 +20,7 @@
             <el-button type="primary" @click="register">注册</el-button>
           </el-row>
         </el-form>
-      </el-card>
     </div>
-  </div>
 </template>
 
 <!--数据存贮交互，事件控制地区-->
@@ -47,6 +42,7 @@
         }
       }
       return {
+        Account:true,
         form: {
           name: '',
           password: ''
@@ -64,22 +60,11 @@
     methods: {
       /* 提交进行判断的函数 */
       submitData: function () {
-        // 转成axios需要的形式
-        let PostData = {'username': this.form.name, 'password': this.form.password}
-        // this.$http.post('/ant/login', PostData).then(response => {
-        //   if (response.data.code === 0) {
-        //     window.localStorage['token'] = response.data.extra.token
-        //     this.$router.push({path: '/Team'})
-        //   } else {
-        //     alert(response.data.message)
-        //   }
-        // }).catch(error => {
-        //   alert('错误：' + error)
-        // })
+        // todo:接入后端API
         this.$message('这是一条消息提示');
       },
       register: function () {
-        this.$router.push({path: '/register'})
+        this.$emit('toRegister', false)
       },
       submitForm (formName) {
         this.$refs[formName].validate((valid) => {
@@ -96,13 +81,5 @@
 </script>
 <!-- 写样式的地方 -->
 <style scoped>
-  .login{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: initial;
-    align-items: center;
-    text-align: center;
-  }
 
 </style>

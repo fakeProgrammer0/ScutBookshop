@@ -4,7 +4,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">{{ $t('login.title') }}</h3>
+        <h3 class="title">{{ $t('account.title') }}</h3>
         <lang-select class="set-language"/>
       </div>
 
@@ -14,7 +14,7 @@
         </span>
         <el-input
           v-model="loginForm.username"
-          :placeholder="$t('login.username')"
+          :placeholder="$t('account.username')"
           name="username"
           type="text"
           auto-complete="on"
@@ -28,7 +28,7 @@
         <el-input
           :type="passwordType"
           v-model="loginForm.password"
-          :placeholder="$t('login.password')"
+          :placeholder="$t('account.password')"
           name="password"
           auto-complete="on"
           @keyup.enter.native="handleLogin" />
@@ -39,7 +39,8 @@
 
       <!--<el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleRemoteLogin">{{ $t('login.logIn') }}</el-button>-->
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">{{ $t('login.logIn') }}</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">{{
+        $t('account.logIn') }}</el-button>
 
       <!--<div class="tips">-->
       <!--<span>{{ $t('login.username') }} : admin</span>-->

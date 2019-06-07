@@ -106,20 +106,20 @@ export const constantRouterMap = [
         meta: { title: 'search', icon: 'star', noCache: true }
       },
       {
-        path: 'login',
-        component: () => import('@/views/bookshop/Login.vue'),
+        path: 'fav',
+        component: () => import('@/views/bookshop/fav.vue'),
         props: true,
-        name: 'Login',
+        name: 'fav',
         // hidden: true,
-        meta: { title: 'login', icon: 'star', noCache: true }
+        meta: { title: 'fav', icon: 'star', noCache: true }
       },
       {
-        path: 'register',
-        component: () => import('@/views/bookshop/Register.vue'),
+        path: 'shopping',
+        component: () => import('@/views/bookshop/shopping.vue'),
         props: true,
-        name: 'Register',
+        name: 'shopping',
         // hidden: true,
-        meta: { title: 'register', icon: 'star', noCache: true }
+        meta: { title: 'shopping', icon: 'star', noCache: true }
       }
       // {
       //   path: 'favorite',

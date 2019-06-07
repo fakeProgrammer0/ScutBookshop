@@ -1,7 +1,4 @@
 <template>
-  <div class="register" style="margin-top: 20px">
-    <div class="register">
-      <el-card class="box-card" shadow="always">
         <el-form ref="form" :model="form" label-width="100px"  status-icon :rules="rules">
           <h2>注册</h2>
           <el-form-item label="账户：" prop="name">
@@ -21,19 +18,6 @@
             <el-input v-model="form.username" size="small"></el-input>
           </el-form-item>
 
-          <el-form-item label="邮箱：" prop="email" :rules="[
-      { required: true, message: '请输入邮箱地址', trigger: 'blur' },
-      { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
-    ]">
-            <el-input v-model="form.email" size="small"></el-input>
-          </el-form-item>
-
-          <el-row type="flex" justify="center" >
-            <el-col  style="font-size: 0.7em">
-              点击注册表示你已阅读并同意
-              <el-button type="text" >《Ant 服务条款》 </el-button>
-            </el-col>
-          </el-row>
           <el-row type="flex" justify="center">
             <el-button  type="primary" @click="submitForm('form')" style="width: 68%; font-size: 1.2em; word-spacing: 2.5em">注册</el-button>
           </el-row>
@@ -45,9 +29,6 @@
             </el-col>
           </el-row>
         </el-form>
-      </el-card>
-    </div>
-  </div>
 </template>
 <script>
   export default {
@@ -81,7 +62,6 @@
           password: '',
           checkpassword: '',
           username: '',
-          email: ''
         },
         rules: {
           name: [
@@ -105,14 +85,11 @@
           'name': this.form.username,
           'email': this.form.email
         })
-        // this.$http.post('/ant/register', data).then(response => {
-        //   alert(response.data.message)
-        // }).catch(error => {
-        //   alert('错误：' + error)
-        // })
+        // todo:接入后端api
+        this.$message("注册提示")
       },
       login: function () {
-        this.$router.push({path: '/'})
+        this.$emit('toLogin', true)
       },
       submitForm (formName) {
         this.$refs[formName].validate((valid) => {

@@ -30,8 +30,6 @@
 <!--        </el-tooltip>-->
 <!--      </template>-->
 
-      <el-button type="primary">购物车</el-button>
-      <el-button type="primary">收藏</el-button>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
@@ -50,11 +48,22 @@
             </el-dropdown-item>
           </a>
           <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">{{ $t('navbar.logOut') }}</span>
+            <span style="display:block;" @click="Login">登录</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+
+<!--    todo：定位不太会调，暂时换个顺序解决吧。。-->
+    <div class="mid">
+      <span><router-link :to="{name: 'fav'}"><svg-icon icon-class="star" />收藏 </router-link></span>
+      <span><router-link :to="{name: 'shopping'}"><svg-icon icon-class="shopping" />购物车 </router-link></span>
+    </div>
+
+    <el-dialog title="提示" :visible.sync="LoginVisible">
+      <Account></Account>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -67,9 +76,16 @@ import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker'
+import Account from './Account'
 
 export default {
+  data(){
+    return {
+      LoginVisible:false
+    }
+  },
   components: {
+    Account,
     Breadcrumb,
     Hamburger,
     ErrorLog,
@@ -90,10 +106,12 @@ export default {
     toggleSideBar() {
       this.$store.dispatch('toggleSideBar')
     },
-    logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload()// In order to re-instantiate the vue-router object to avoid bugs
-      })
+    Login() {
+      // this.$store.dispatch('LogOut').then(() => {
+      //   location.reload()// In order to re-instantiate the vue-router object to avoid bugs
+      // })
+      // todo:测试用
+      this.LoginVisible = true
     }
   }
 }
@@ -116,6 +134,12 @@ export default {
   .errLog-container {
     display: inline-block;
     vertical-align: top;
+  }
+  .mid{
+    float: right;
+    span{
+      margin: 10px;
+    }
   }
   .right-menu {
     float: right;
