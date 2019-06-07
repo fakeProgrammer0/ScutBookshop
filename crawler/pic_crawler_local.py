@@ -107,8 +107,8 @@ def download_store_images(table, id_2_pic_urls):
 
 
 if __name__ == "__main__":
-    # table = book_t
-    table = author_t
+    table = book_t
+    # table = author_t
     id_2_pic_urls = get_pic_urls(table)
     id_2_zimg_url = download_store_images(table, id_2_pic_urls)
     cnx.close()
