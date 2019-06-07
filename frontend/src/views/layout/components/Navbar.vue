@@ -5,10 +5,10 @@
 <!--    <breadcrumb class="breadcrumb-container"/>-->
     <span class="left-menu">
        <router-link :to="{name: 'home'}">
-      <el-link>首页</el-link>
+        首页
        </router-link>
 
-      <el-link>推荐</el-link>
+      推荐
     </span>
 
     <div class="right-menu">

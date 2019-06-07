@@ -12,7 +12,7 @@
 
     <el-card class="box-card-component" style="margin-top: 20px;margin-bottom: 50px">
       <div slot="header" class="box-card-header">
-        <span style="font-size: 36px;padding-top: 5px;padding-bottom: 5px">{{ book.title }}</span>
+        <span style="font-size: 36px;padding-top: 5px;padding-bottom: 5px">{{ author.title }}</span>
         <div style="float: right;margin-right: 20px">
           <el-button :type="collectedBtnType" :icon="collectedBtnIcon" @click="handleCollected"/>
         </div>
@@ -20,24 +20,24 @@
 
       <div>
         <div style="float: left;padding-right: 40px;min-height: 400px;height: auto !important;height: 400px">
-          <img :src="book.pic_url" height="350px">
+          <img :src="author.pic_url" height="350px">
         </div>
 
         <div style="margin-right: 20px">
-          <div class="book-desc">名称：{{ book.title }}</div>
-          <div class="book-desc" v-if="book.original != null">原作名：{{ book.original }}</div>
-          <div class="book-desc">作者：{{ book.author }}</div>
-          <div class="book-desc">作者简介：{{ book.author_intro }}</div>
-          <div class="book-desc" v-if="book.translator != null">译者：{{ book.translator }}</div>
-          <div class="book-desc">出版社：{{ book.press }}</div>
-          <div class="book-desc">出版日期：{{ book.publish_date }}</div>
+          <div class="book-desc">名称：{{ author.title }}</div>
+          <div class="book-desc" v-if="author.original != null">原作名：{{ author.original }}</div>
+          <div class="book-desc">作者：{{ author.author }}</div>
+          <div class="book-desc">作者简介：{{ author.author_intro }}</div>
+          <div class="book-desc" v-if="author.translator != null">译者：{{ author.translator }}</div>
+          <div class="book-desc">出版社：{{ author.press }}</div>
+          <div class="book-desc">出版日期：{{ author.publish_date }}</div>
 
-          <div class="book-desc">页数：{{ book.pages }}</div>
+          <div class="book-desc">页数：{{ author.pages }}</div>
 
-          <div class="book-desc">定价：{{ book.price }}</div>
-          <div class="book-desc">装帧：{{ book.binding }}</div>
-          <div class="book-desc">豆瓣评分：{{ book.douban_score }}</div>
-          <div class="book-desc">ISBN：{{ book.ISBN }}</div>
+          <div class="book-desc">定价：{{ author.price }}</div>
+          <div class="book-desc">装帧：{{ author.binding }}</div>
+          <div class="book-desc">豆瓣评分：{{ author.douban_score }}</div>
+          <div class="book-desc">ISBN：{{ author.ISBN }}</div>
         </div>
 
       </div>
@@ -53,7 +53,7 @@
         class="box-card-component"
         style="margin-top: 20px;margin-bottom: 20px;">
         <div style="font-size: 16px;line-height:20pt;">
-          {{ book.summary }}
+          {{ author.summary }}
         </div>
       </el-card>
 
@@ -68,7 +68,7 @@
         class="box-card-component"
         style="margin-top: 20px;margin-bottom: 20px;">
         <div style="font-size: 16px;line-height:20pt;">
-          {{ book.author_intro }}
+          {{ author.author_intro }}
         </div>
       </el-card>
 
@@ -132,7 +132,7 @@
     },
     data() {
       return {
-        book: {
+        author: {
           "id": 1770782,
           "title": "追风筝的人",
           "original": null,
@@ -152,7 +152,7 @@
           "ISBN": "9787208061644"
         },
         title: this.movie_title,
-        shortComments: [
+        hotBooks: [
           "前半部比后半部好",
           "过誉",
           "非常好的一本通俗小说．适合拍电影的好脚本．里面有很多可贵的东西．但情节上也有些地方不可理喻．前半部非常的棒．但后面落入俗套子－－但还是感动了我．这是作者的处女作，已经非常的了不起了．",
@@ -165,16 +165,16 @@
       }
     },
     created() {
-      this.loadBookDetail();
-      this.loadShortComments();
+      this.loadAuthorDetail();
+      this.loadHotBooks();
       this.checkBookCollected();
     },
     methods: {
-      loadBookDetail() {
+      loadAuthorDetail() {
         var _this = this;
         RestAPI.getBookDetail(this.book_id).then(function (response) {
           if (response.data.status === 200){
-            _this.book = response.data.data;
+            _this.author = response.data.data;
           }else{
             console.log(response.data);
             // TODO: 提示找不到该图书
@@ -183,12 +183,12 @@
           console.log(error)
         });
       },
-      loadShortComments() {
+      loadHotBooks() {
         var _this = this
         RestAPI.getShortComments(this.book_id).then(function (response) {
           if (response.data.status === 200) {
-            _this.shortComments = response.data.data;
-            console.log(_this.shortComments)
+            _this.hotBooks = response.data.data;
+            console.log(_this.hotBooks)
           } else {
             console.log('error')
             console.log(response)

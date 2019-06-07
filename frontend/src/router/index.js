@@ -120,6 +120,14 @@ export const constantRouterMap = [
         name: 'shopping',
         // hidden: true,
         meta: { title: 'shopping', icon: 'star', noCache: true }
+      },
+      {
+        path: 'author',
+        component: () => import('@/views/bookshop/author.vue'),
+        props: true,
+        name: 'author',
+        // hidden: true,
+        meta: { title: 'author', icon: 'star', noCache: true }
       }
       // {
       //   path: 'favorite',
