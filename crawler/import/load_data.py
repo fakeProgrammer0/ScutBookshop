@@ -3,7 +3,7 @@ import numpy as np
 import mysql.connector
 import math
 
-books_csv = __file__ + "/../books_0.csv"
+books_csv = __file__ + "/../books_0_t0.csv"
 
 df_book = pd.read_csv(books_csv, engine='python', encoding='utf8')
 
@@ -11,8 +11,8 @@ df_book = df_book.drop(columns=['title', 'book_url', 'pic_url', 'author','press'
 
 db_config = {
         'user': 'root',
-        'password': 'root0101',
-        'host': '107.191.52.220',
+        'password': '123456',
+        'host': '116.56.140.131',
         'database': 'bookshop',
         'raise_on_warnings': True
     }
