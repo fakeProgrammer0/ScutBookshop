@@ -12,6 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class UserService
 {
@@ -43,6 +46,8 @@ public class UserService
         if (!tempUser.getPassword().equals(encryptedPassword))
             throw ex;
         tempUser.setPassword(null);
-        return Result.OK().data(tempUser).build();
+        Map<String, Object> data = new HashMap<>();
+        data.put("user", tempUser);
+        return Result.OK().data(data).build();
     }
 }
