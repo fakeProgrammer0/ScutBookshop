@@ -115,43 +115,117 @@ export const login = (username, password) => {
 
 // TODO: 用户收藏夹（待完善）
 
-
-// UB1.添加图书到收藏夹
-export const addCollectedBook = (user_id, book_id) => {
+// F1.添加收藏夹
+export const addFavorite = (user_id, favorite_type, favorite_id) => {
   return axios({
     method: POST,
-    url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+    url: "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
   })
-};
+}
 
+export const addFavoriteBook = (user_id, book_id) => {
+  return addFavorite(user_id, "book", book_id);
+}
 
-// UB2.从收藏夹中删除图书
-export const removeCollectedBook = (user_id, book_id) => {
+export const addFavoriteAuthor = (user_id, author_id) => {
+  return addFavorite(user_id, "author", author_id);
+}
+
+// F2.删除收藏夹
+export const removeFavorite = (user_id, favorite_type, favorite_id) => {
   return axios({
     method: DELETE,
-    url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+    url: "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
   })
-};
+}
 
+export const removeFavoriteBook = (user_id, book_id) => {
+  return removeFavorite(user_id, "book", book_id);
+}
 
-// UB3.获取用户收藏图书
-export const getCollectedMovies = (user_id, page, per_page) => {
+export const removeFavoriteAuthor = (user_id, author_id) => {
+  return removeFavorite(user_id, "author", author_id);
+}
+
+// F3.检查是否添加收藏夹
+export const checkFavorite = (user_id, favorite_type, favorite_id) => {
+  return axios({
+    url: "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
+  })
+}
+
+export const checkFavoriteBook = (user_id, book_id) => {
+  return checkFavorite(user_id, "book", book_id);
+}
+
+export const checkFavoriteAuthor = (user_id, author_id) => {
+  return checkFavorite(user_id, "author", author_id);
+}
+
+// F4.获取收藏图书列表
+export const getFavoriteBooks = (user_id, page, per_page) => {
   page = page ? page : 1;
   per_page = per_page ? per_page : 5;
-  return axios({
-    url: baseUrl + "/users/" + user_id + "/collections/",
+  return new axios({
+    url: "/users/" + user_id + "/favorites/books",
     params: {
       "page": page,
       "per_page": per_page
     }
   })
-};
+}
 
-// UB4.检查用户是否收藏该图书
-export const checkCollectedBook = (user_id, book_id) => {
-  return axios({
-    method: GET,
-    url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+// F4.获取收藏作者列表
+export const getFavoriteAuthors = (user_id, page, per_page) => {
+  page = page ? page : 1;
+  per_page = per_page ? per_page : 5;
+  return new axios({
+    url: "/users/" + user_id + "/favorites/authors",
+    params: {
+      "page": page, 
+      "per_page": per_page
+    }
   })
-};
+}
+
+
+
+// // UB1.添加图书到收藏夹
+// export const addCollectedBook = (user_id, book_id) => {
+//   return axios({
+//     method: POST,
+//     url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+//   })
+// };
+
+
+// // UB2.从收藏夹中删除图书
+// export const removeCollectedBook = (user_id, book_id) => {
+//   return axios({
+//     method: DELETE,
+//     url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+//   })
+// };
+
+
+// // UB3.获取用户收藏图书
+// export const getCollectedMovies = (user_id, page, per_page) => {
+//   page = page ? page : 1;
+//   per_page = per_page ? per_page : 5;
+//   return axios({
+//     url: baseUrl + "/users/" + user_id + "/collections/",
+//     params: {
+//       "page": page,
+//       "per_page": per_page
+//     }
+//   })
+// };
+
+// // UB4.检查用户是否收藏该图书
+// export const checkCollectedBook = (user_id, book_id) => {
+//   return axios({
+//     method: GET,
+//     url: baseUrl + "/users/" + user_id + "/collections/" + book_id,
+//   })
+// };
 
