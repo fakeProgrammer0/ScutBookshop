@@ -19,14 +19,14 @@ public class UserController
     @Autowired
     private UserService userService;
     
-    @ApiOperation("用户注册")
-    @PostMapping("/users/")
+    @ApiOperation("U1.用户注册")
+    @PostMapping("/users")
     public Result signUp(@Validated @RequestBody User user)
     {
         return userService.signUp(user);
     }
     
-    @ApiOperation("用户登录")
+    @ApiOperation("U2.用户登录")
     @PostMapping("/users/login")
     public Result login(@Validated @RequestBody LoginUser user)
     {

@@ -13,7 +13,7 @@ public enum ErrorCode
     PARAM_ERR_REQUEST_DATA_FIELD_UNPASS(400_001, "请求数据字段验证不通过"),
     PARAM_ERR_REQUEST_DATA_REQUIRED_FIELD_IS_NULL(400_002, "请求数据必须字段不可为空"),
     PARAM_ERR_USERNAME_REGISTERED_EXISTS(400_003, "注册用户名已存在"),
-   
+    PARAM_ERR_FAVORITE_TYPE(400_004, "favorite_type ∈ {author, book}"),
     
     
     // 403 Forbidden 权限：未授权 / 非法访问
@@ -24,6 +24,8 @@ public enum ErrorCode
     NOT_FOUND_USERNAME_OR_PASSWORD_INVALID(404_001, "用户不存在或密码错误"),
     NOT_FOUND_BOOK_ID(404_002, "图书id不存在"),
     NOT_FOUND_COLLECTION(404_003, "用户不存在，或图书不存在，或用户未收藏图书"),
+    NOT_FOUND_FAVORITE(404_004, "用户不存在，或图书（作者）不存在，或用户未收藏图书（作者）"),
+    
     
     
     // 500 Internal Server Error 服务器错误

@@ -19,4 +19,37 @@
     <select id="getCollections">
 
     </select>
+
+    <insert id="insertFavorite">
+        insert into `favorite_${favorite_type}_t` (`user_id`, `${favorite_type}_id`)
+        values (#{user_id}, #{favorite_id})
+    </insert>
+    <delete id="deleteFavorite">
+        delete from `favorite_${favorite_type}_t`
+        where `user_id` = #{user_id} and `${favorite_type}_id` = #{favorite_id}
+    </delete>
+    <select id="checkFavorite" resultType="java.lang.Integer">
+        select count(*) from `favorite_${favorite_type}_t`
+        where `user_id` = #{user_id} and `${favorite_type}_id` = #{favorite_id}
+    </select>
+    <select id="getFavorites" resultType="java.lang.Integer">
+        select * from `favorite_${favorite_type}_t`
+        where `user_id` = #{user_id} and `${favorite_type}_id` = #{favorite_id}
+    </select>
+    <select id="getFavoriteBooks" resultType="cn.edu.scut.bookshop.domain.pojo.BookSimpleDetail">
+        select `id`, `title`, `author`, `price`, `douban_score`, `pic_url`
+        from `book_t`
+        where `id` in (
+        select `book_id` as `id`
+        from `favorite_book_t`
+        where `user_id` = #{user_id})
+    </select>
+    <select id="getFavoriteAuthors" resultType="cn.edu.scut.bookshop.domain.pojo.AuthorOverview">
+        select `id`, `name`, `original`, `country`, `pic_url`
+        from `author_t`
+        where `id` in (
+        select `author_id` as `id`
+        from `favorite_author_t`
+        where `user_id` = #{user_id})
+    </select>
 </mapper>
