@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.scut.bookshop.dao.UserCommentDao">
+   <insert id="creatComment">
+        insert into comment_t (user_id,book_id,username,content,pics,create_time)values(
+        #{user_id},#{book_id},#{username},#{content},#{pics},#{create_time}
+        )
+   </insert>
+
+    <update id="updateComment">
+        update comment_t set
+        content=#{content},
+        pics=#{pics},
+        create_time=#{create_time}
+        where id=#{id}
+    </update>
+
+    <delete id="deleteComment">
+        delete from comment_t where id in(
+        <foreach collection="list" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </delete>
+
+
+
+
+</mapper>

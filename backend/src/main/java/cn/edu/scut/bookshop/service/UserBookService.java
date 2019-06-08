@@ -42,4 +42,39 @@ public class UserBookService
         PageHelper.startPage(page, per_page);
         return null;
     }
+    
+    public Result addFavorite(String favorite_type, int user_id, int favorite_id)
+    {
+        int affectedRow = userBookDao.insertFavorite(favorite_type, user_id, favorite_id);
+        assert affectedRow == 1;
+        return Result.OK().build();
+    }
+    
+    public Result removeFavorite(String favorite_type, int user_id, int favorite_id)
+    {
+        int affectedRow = userBookDao.deleteFavorite(favorite_type, user_id, favorite_id);
+        if (affectedRow == 1)
+            return Result.OK().build();
+        throw new BusinessException(ErrorCode.NOT_FOUND_FAVORITE);
+    }
+    
+    public Result checkFavorite(String favorite_type, int user_id, int favorite_id)
+    {
+        int count = userBookDao.checkFavorite(favorite_type, user_id, favorite_id);;
+        if(count == 1)
+            return Result.OK().build();
+        throw new BusinessException(ErrorCode.NOT_FOUND_FAVORITE);
+    }
+    
+    public Result getFavoriteBooks(int user_id)
+    {
+        return Result.OK().data(userBookDao.getFavoriteBooks(user_id)).build();
+    }
+ 
+    public Result getFavoriteAuthors(int user_id)
+    {
+        return Result.OK().data(userBookDao.getFavoriteAuthors(user_id)).build();
+    }
+    
+    
 }

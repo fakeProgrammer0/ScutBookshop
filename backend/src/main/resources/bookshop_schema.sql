@@ -114,6 +114,26 @@ create table if not exists `collection_t`
     foreign key (`book_id`) references `book_t` (`id`) on delete cascade
 );
 
+create table if not exists `favorite_book_t`
+(
+    `id`      int(11) auto_increment primary key,
+    `user_id` int(11) not null,
+    `book_id` int(11) not null,
+    unique key (`user_id`, `book_id`),
+    foreign key (`user_id`) references `user_t` (`id`) on delete cascade,
+    foreign key (`book_id`) references `book_t` (`id`) on delete cascade
+);
+
+create table if not exists `favorite_author_t`
+(
+    `id`      int(11) auto_increment primary key,
+    `user_id` int(11) not null,
+    `author_id` int(11) not null,
+    unique key (`user_id`, `author_id`),
+    foreign key (`user_id`) references `user_t` (`id`) on delete cascade,
+    foreign key (`author_id`) references `author_t` (`id`) on delete cascade
+);
+
 /* 用户评分+评论 */
 create table if not exists `rating_t`
 (
