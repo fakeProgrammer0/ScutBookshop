@@ -84,7 +84,19 @@ export const search = (keyword, size) => {
   });
 };
 
-export const userLogin = (username, password) => {
+// 用户
+
+// U1.用户注册
+export const signUp = (userInfo) => {
+  return axios({
+    method: POST,
+    url: baseUrl + "/users",
+    data: userInfo
+  })
+};
+
+// U2.用户登录
+export const login = (username, password) => {
   return axios({
     method: POST,
     url: baseUrl + "/users/login",
@@ -101,8 +113,10 @@ export const userLogin = (username, password) => {
 
 
 
-// others
+// TODO: 用户收藏夹（待完善）
 
+
+// UB1.添加图书到收藏夹
 export const addCollectedBook = (user_id, book_id) => {
   return axios({
     method: POST,
@@ -110,6 +124,8 @@ export const addCollectedBook = (user_id, book_id) => {
   })
 };
 
+
+// UB2.从收藏夹中删除图书
 export const removeCollectedBook = (user_id, book_id) => {
   return axios({
     method: DELETE,
@@ -117,14 +133,21 @@ export const removeCollectedBook = (user_id, book_id) => {
   })
 };
 
-export const getCollectedMovies = params => {
+
+// UB3.获取用户收藏图书
+export const getCollectedMovies = (user_id, page, per_page) => {
+  page = page ? page : 1;
+  per_page = per_page ? per_page : 5;
   return axios({
-    method: 'get',
-    url: baseUrl + getCollectedMoves,
-    params: params
+    url: baseUrl + "/users/" + user_id + "/collections/",
+    params: {
+      "page": page,
+      "per_page": per_page
+    }
   })
 };
 
+// UB4.检查用户是否收藏该图书
 export const checkCollectedBook = (user_id, book_id) => {
   return axios({
     method: GET,
