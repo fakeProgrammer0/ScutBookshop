@@ -1,8 +1,8 @@
 <template>
         <el-form ref="form" :model="form" label-width="100px"  status-icon :rules="rules">
           <h2>注册</h2>
-          <el-form-item label="账户：" prop="name">
-            <el-input v-model="form.name" size="small"></el-input>
+          <el-form-item label="账户：" prop="username">
+            <el-input v-model="form.username" size="small"></el-input>
           </el-form-item>
           <el-form-item label="密码：" prop="password">
             <el-input v-model="form.password" size="small" type="password"></el-input>
@@ -10,12 +10,6 @@
 
           <el-form-item label="确认密码：" prop="checkpassword">
             <el-input v-model="form.checkpassword" size="small" type="password"></el-input>
-          </el-form-item>
-
-          <el-form-item label="昵称：" prop="username" :rules="{
-      required: true, message: '昵称不能为空', trigger: 'blur'
-    }">
-            <el-input v-model="form.username" size="small"></el-input>
           </el-form-item>
 
           <el-row type="flex" justify="center">
@@ -31,6 +25,8 @@
         </el-form>
 </template>
 <script>
+  import * as RestAPI from '@/api/RestAPI';
+  import store from '@/store'
   export default {
     name: 'register',
     data () {
@@ -58,13 +54,12 @@
       }
       return {
         form: {
-          name: '',
+          username: '',
           password: '',
           checkpassword: '',
-          username: '',
         },
         rules: {
-          name: [
+          username: [
             {validator: validateName, trigger: 'blur'}
           ],
           password: [
@@ -79,14 +74,18 @@
     methods: {
       /* 提交进行判断的函数 */
       submitData: function () {
+        let _this = this
         let data = ({
-          'username': this.form.name,
+          'username': this.form.username,
           'password': this.form.password,
-          'name': this.form.username,
-          'email': this.form.email
         })
         // todo:接入后端api
-        this.$message("注册提示")
+        RestAPI.signUp(data).then(function(res) {
+          alert("注册成功")
+          _this.$emit('toLogin', true)
+        }).catch(function(err) {
+          alert(err)
+        })
       },
       login: function () {
         this.$emit('toLogin', true)

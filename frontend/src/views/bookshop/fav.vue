@@ -50,10 +50,12 @@
 </template>
 
 <script>
+  import store from '@/store'
   export default {
     name:'fav',
     data() {
       return {
+        id:'',
         tableData: [{
           title: "追风筝的人",
           author:"[美]卡勒德·胡赛尼 Khaled Hosseini",
@@ -73,7 +75,11 @@
         multipleSelection: []
       }
     },
-
+    created(){
+      if (store.getters.id != -1){
+        this.id = store.getters.id
+      }
+    },
     methods: {
       toggleSelection(rows) {
         if (rows) {

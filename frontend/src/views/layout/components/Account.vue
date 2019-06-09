@@ -1,6 +1,6 @@
 <template>
     <div v-if="Login == true">
-      <Login @toRegister="toOther"></Login>
+      <Login @toRegister="toOther" @LoginSuccess="LoginSuccess"></Login>
     </div>
     <div v-else>
       <Register @toLogin="toOther"></Register>
@@ -24,6 +24,9 @@
     methods:{
       toOther(val){
         this.Login = val
+      },
+      LoginSuccess(val){
+        this.$emit("success",val)
       }
     }
   }

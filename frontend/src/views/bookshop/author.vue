@@ -29,7 +29,8 @@
           <div class="book-desc">国家：{{ author.country }}</div>
 
           <div class="book-desc" v-if="author.gender== 1">性别：男</div>
-          <div class="book-desc" v-else>性别：女</div>
+          <div class="book-desc" v-if="author.gender== 2">性别：女</div>
+          <div class="book-desc" v-if="author.gender== 0">性别：无</div>
 
           <div class="book-desc">生日：{{ author.born}}</div>
 
@@ -57,21 +58,10 @@
 
 
     </el-card>
-    <!--<el-card class="box-card-component" style="margin-top: 50px;margin-bottom: 50px">-->
-    <!--<div slot="header" class="box-card-header">-->
-    <!--<span>豆瓣短评</span>-->
-    <!--</div>-->
-    <!--<li v-for="comment in shortComments">-->
-    <!--{{comment}}-->
-    <!--</li>-->
-    <!--<div>-->
-
-    <!--</div>-->
-    <!--</el-card>-->
 
     <el-card class="box-card-component" style="margin-top: 50px;margin-bottom: 50px;">
       <div slot="header" style="background-color: #263445">
-        <span style="font-size: 32px;color: #FFFFFF;padding-top: 5px;padding-bottom: 5px">豆瓣短评</span>
+        <span style="font-size: 32px;color: #FFFFFF;padding-top: 5px;padding-bottom: 5px">该作者热门图书</span>
       </div>
 
       <el-col :span="4" :offset="1" class="item"  v-for="book in hotBooks">
@@ -118,7 +108,7 @@
     },
     created() {
       this.loadAuthorDetail();
-      this.loadHotBooks();
+      this.loadComment();
       this.checkBookCollected();
     },
     methods: {
@@ -135,12 +125,11 @@
           console.log(error)
         });
       },
-      loadHotBooks() {
+      loadComment() {
         var _this = this
         RestAPI.getAuthorHotBooks(this.book_id).then(function (response) {
           if (response.data.status === 200) {
             _this.hotBooks = response.data.data;
-            console.log(_this.hotBooks)
           } else {
             console.log('error')
             console.log(response)
@@ -157,71 +146,71 @@
 
 
 
-  //     // TODO: 待修改
-  //     handleCollected() {
-  //       if (this.collectedBtnType === 'info') {
-  //         this.addFavoriteMovie()
-  //       } else {
-  //         this.removeFavoriteMovie()
-  //       }
-  //     },
-  //     addFavoriteMovie() {
-  //       this.collectedBtnType = 'danger'
-  //       this.collectedBtnIcon = 'el-icon-star-on'
-  //
-  //       var data = {
-  //         username: this.$store.getters.username,
-  //         title: this.title
-  //       }
-  //       console.log(data)
-  //       RestAPI.addCollectedMovie(data).then(function (response) {
-  //         if (response.data.msg == 'ok') {
-  //           console.log('collected!')
-  //         }
-  //       })
-  //     },
-  //     removeFavoriteMovie() {
-  //       this.collectedBtnType = 'info'
-  //       this.collectedBtnIcon = 'el-icon-star-off'
-  //
-  //       var data = {
-  //         username: this.$store.getters.username,
-  //         title: this.title
-  //       }
-  //       RestAPI.removeCollectedMovie(data).then(function (response) {
-  //         if (response.data.msg == 'ok') {
-  //           console.log('remove collected!')
-  //         }
-  //       })
-  //     },
-  //     checkBookCollected() {
-  //       if (this.$store.getters.username === '') {
-  //         console.log('null username')
-  //         this.$store.commit('SET_USERNAME', 'admin')
-  //         console.log('set username: ' + this.$store.getters.username)
-  //       }
-  //       var data = {
-  //         username: this.$store.getters.username,
-  //         title: this.title
-  //       }
-  //       var _this = this
-  //       RestAPI.checkBookCollected(data).then(function (response) {
-  //         if (response.data.msg == 'ok') {
-  //           console.log('collected!')
-  //           _this.collectedBtnType = 'danger'
-  //           _this.collectedBtnIcon = 'el-icon-star-on'
-  //         } else {
-  //           _this.collectedBtnType = 'info'
-  //           __this.collectedBtnIcon = 'el-icon-star-off'
-  //         }
-  //       })
-  //     },
-  //     handleTest() {
-  //       var name = this.$store.getters.username
-  //       var roles = this.$store.getters.roles
-  //       console.log('name: ' + name)
-  //       console.log('role: ' + roles)
-  //     }
+      // TODO: 待修改
+      handleCollected() {
+        if (this.collectedBtnType === 'info') {
+          this.addFavoriteMovie()
+        } else {
+          this.removeFavoriteMovie()
+        }
+      },
+      addFavoriteMovie() {
+        this.collectedBtnType = 'danger'
+        this.collectedBtnIcon = 'el-icon-star-on'
+
+        var data = {
+          username: this.$store.getters.username,
+          title: this.title
+        }
+        console.log(data)
+        RestAPI.addCollectedMovie(data).then(function (response) {
+          if (response.data.msg == 'ok') {
+            console.log('collected!')
+          }
+        })
+      },
+      removeFavoriteMovie() {
+        this.collectedBtnType = 'info'
+        this.collectedBtnIcon = 'el-icon-star-off'
+
+        var data = {
+          username: this.$store.getters.username,
+          title: this.title
+        }
+        RestAPI.removeCollectedMovie(data).then(function (response) {
+          if (response.data.msg == 'ok') {
+            console.log('remove collected!')
+          }
+        })
+      },
+      checkBookCollected() {
+        if (this.$store.getters.username === '') {
+          console.log('null username')
+          this.$store.commit('SET_USERNAME', 'admin')
+          console.log('set username: ' + this.$store.getters.username)
+        }
+        var data = {
+          username: this.$store.getters.username,
+          title: this.title
+        }
+        var _this = this
+        RestAPI.checkBookCollected(data).then(function (response) {
+          if (response.data.msg == 'ok') {
+            console.log('collected!')
+            _this.collectedBtnType = 'danger'
+            _this.collectedBtnIcon = 'el-icon-star-on'
+          } else {
+            _this.collectedBtnType = 'info'
+            __this.collectedBtnIcon = 'el-icon-star-off'
+          }
+        })
+      },
+      handleTest() {
+        var name = this.$store.getters.username
+        var roles = this.$store.getters.roles
+        console.log('name: ' + name)
+        console.log('role: ' + roles)
+      }
     }
   }
 </script>
