@@ -14,7 +14,8 @@
       <div slot="header" class="box-card-header">
         <span style="font-size: 36px;padding-top: 5px;padding-bottom: 5px">{{ book.title }}</span>
         <div style="float: right;margin-right: 20px">
-          <el-button :type="collectedBtnType" :icon="collectedBtnIcon" @click="handleCollected"/>
+          <el-button :type="favoriteBtn.type" :icon="favoriteBtn.icon" @click="handleClickFavBtn">
+          </el-button>
         </div>
       </div>
 
@@ -27,7 +28,7 @@
           <div class="book-desc">名称：{{ book.title }}</div>
           <div class="book-desc" v-if="book.original != null">原作名：{{ book.original }}</div>
           <div class="book-desc">作者：{{ book.author }}</div>
-          <div class="book-desc">作者简介：{{ book.author_intro }}</div>
+          <!--<div class="book-desc">作者简介：{{ book.author_intro }}</div>-->
           <div class="book-desc" v-if="book.translator != null">译者：{{ book.translator }}</div>
           <div class="book-desc">出版社：{{ book.press }}</div>
           <div class="book-desc">出版日期：{{ book.publish_date }}</div>
@@ -151,7 +152,6 @@
           "author_intro": "卡勒德·胡赛尼（Khaled Hosseini），1965年生于阿富汗喀布尔市，后随父亲迁往美国。胡赛尼毕业于加州大学圣地亚哥医学系，现居加州。“立志拂去蒙在阿富汗普通民众面孔的尘灰，将背后灵魂的悸动展示给世人。”著有小说《追风筝的人》(The Kite Runner，2003）、《灿烂千阳》(A Thousand Splendid Suns，2007)、《群山回唱》（And the Mountains Echoed,2013）。作品全球销量超过4000万册。2006年，因其作品巨大的国际影响力，胡赛尼获得联合国人道主义奖，并受邀担任联合国难民署亲善大使。",
           "ISBN": "9787208061644"
         },
-        title: this.movie_title,
         shortComments: [
           "前半部比后半部好",
           "过誉",
@@ -159,12 +159,19 @@
           "追到的只有自己的过去\n\n救赎的只有自己的现在",
           "改变了我因为19：00对阿富汗20多年的曲解"
         ],
-        collected: false,
-        collectedBtnType: 'info',
-        collectedBtnIcon: 'el-icon-star-off'
+        starOnBtn: {
+          type: 'danger',
+          icon: 'el-icon-star-on'
+        },
+        starOffBtn: {
+          type: 'info',
+          icon: 'el-icon-star-off'
+        },
+        favoriteBtn: null,
       }
     },
     created() {
+      this.favoriteBtn = this.starOffBtn;
       this.loadBookDetail();
       this.loadShortComments();
       this.checkBookCollected();
@@ -178,13 +185,15 @@
           }else{
             console.log(response.data);
             // TODO: 提示找不到该图书
+            if(response.status === 404)
+              console.log(response.data.msg);
           }
         }).catch(function (error) {
           console.log(error)
         });
       },
       loadShortComments() {
-        var _this = this
+        var _this = this;
         RestAPI.getShortComments(this.book_id).then(function (response) {
           if (response.data.status === 200) {
             _this.shortComments = response.data.data;
@@ -197,72 +206,64 @@
           console.log(error)
         })
       },
-
-
-
-
-
-
-
-
       // TODO: 待修改
-      handleCollected() {
-        if (this.collectedBtnType === 'info') {
-          this.addFavoriteMovie()
+      handleClickFavBtn() {
+        if (this.favoriteBtn === this.starOffBtn) {
+          this.addFavoriteBook()
         } else {
-          this.removeFavoriteMovie()
+          this.removeFavoriteBook()
         }
       },
-      addFavoriteMovie() {
-        this.collectedBtnType = 'danger'
-        this.collectedBtnIcon = 'el-icon-star-on'
+      addFavoriteBook() {
+        var user_id = 1;
 
-        var data = {
-          username: this.$store.getters.username,
-          title: this.title
-        }
-        console.log(data)
-        RestAPI.addCollectedMovie(data).then(function (response) {
-          if (response.data.msg == 'ok') {
-            console.log('collected!')
+        var _this = this;
+        RestAPI.addFavoriteBook(user_id, _this.book_id).then(res => {
+          if(res.data.status === 200)
+          {
+            _this.favoriteBtn = _this.starOnBtn;
+            _this.$message({
+              message: '收藏图书成功',
+              type: 'success'
+            });
           }
-        })
+        }).catch(err => {
+          console.log(err);
+        });
       },
-      removeFavoriteMovie() {
-        this.collectedBtnType = 'info'
-        this.collectedBtnIcon = 'el-icon-star-off'
+      removeFavoriteBook() {
+        var user_id = 1;
 
-        var data = {
-          username: this.$store.getters.username,
-          title: this.title
-        }
-        RestAPI.removeCollectedMovie(data).then(function (response) {
-          if (response.data.msg == 'ok') {
-            console.log('remove collected!')
+        var _this = this;
+        RestAPI.removeFavoriteBook(user_id, _this.book_id).then(res => {
+          if(res.data.status === 200)
+          {
+            _this.favoriteBtn = _this.starOffBtn;
+            _this.$message({
+              message: '已取消收藏该图书',
+              type: 'warning'
+            });
           }
-        })
+        }).catch(err => {
+          console.log(err);
+        });
       },
       checkBookCollected() {
-        if (this.$store.getters.username === '') {
-          console.log('null username')
-          this.$store.commit('SET_USERNAME', 'admin')
-          console.log('set username: ' + this.$store.getters.username)
-        }
-        var data = {
-          username: this.$store.getters.username,
-          title: this.title
-        }
+        // if (this.$store.getters.username === '') {
+        //   console.log('null username')
+        //   this.$store.commit('SET_USERNAME', 'admin')
+        //   console.log('set username: ' + this.$store.getters.username)
+        // }
+
+        var user_id = 1;
         var _this = this
-        RestAPI.checkBookCollected(data).then(function (response) {
-          if (response.data.msg == 'ok') {
-            console.log('collected!')
-            _this.collectedBtnType = 'danger'
-            _this.collectedBtnIcon = 'el-icon-star-on'
-          } else {
-            _this.collectedBtnType = 'info'
-            __this.collectedBtnIcon = 'el-icon-star-off'
-          }
-        })
+        RestAPI.checkFavoriteBook(user_id, this.book_id).then(res => {
+          if(res.data.status === 200)
+            _this.favoriteBtn = _this.starOnBtn;
+        }).catch(err => {
+          _this.favoriteBtn = _this.starOffBtn;
+          console.log(err);
+        });
       },
       handleTest() {
         var name = this.$store.getters.username

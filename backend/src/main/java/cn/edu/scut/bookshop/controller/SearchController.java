@@ -17,7 +17,7 @@ public class SearchController
     private SearchService searchService;
     
     @ApiOperation("S1.搜索图书、作者")
-    @GetMapping("/search")
+    @GetMapping("/search/hybrid")
     public Result hybridSearch(
             @RequestParam(defaultValue = "") String keyword,
             @RequestParam(defaultValue = "10") int size)

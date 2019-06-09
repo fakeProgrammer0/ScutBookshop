@@ -14,21 +14,37 @@
             <!--</div>-->
           <!--</el-col>-->
         <!--</el-row>-->
-        <el-row :gutter="0" style="margin-top: 10px">
-          <el-col :span="7" :offset="5">
+        <el-row :gutter="0" style="margin-top: 10px;">
+
+          <el-col :span="2" :offset="4" style="margin-right: 20px" >
+            <el-select v-model="selectedSearchMode" placeholder="搜索模式"
+                       @change="changeSearchMode">
+              <el-option v-for="item in searchModes"
+                         :key="item.value"
+                         :label="item.label"
+                         :value="item.value">
+              </el-option>
+            </el-select>
+          </el-col>
+
+          <el-col :span="7" >
             <el-autocomplete
               v-model="keyword"
               :fetch-suggestions="searchEntityAsync"
-              placeholder="请输入图书名称、作者或ISBN"
-              @select="handleSelect"
+              :placeholder="searchPlaceholder"
+              @select="jumpToSearchResult"
               style="width:400px;margin-right: 10px"
               clearable
             >
               <template slot-scope="{ item }">
 <!--                <img :src="item.item.pic_url" style="width: 5px"/>-->
-                <span v-if="item.item.type === 'author'">[作者] </span>
-                <span v-if="item.item.type === 'book'">[图书] </span>
-                <span>{{item.value}}</span>
+                <div v-if="selectedSearchMode === 'hybrid'" style="float: left;width: 50px">
+                  <span v-if="item.item.type === 'author'">[作者] </span>
+                  <span v-if="item.item.type === 'book'">[图书] </span>
+                </div>
+                <div style="float: left">
+                  <span>{{item.value}}</span>
+                </div>
               </template>
 
             </el-autocomplete>
@@ -38,98 +54,26 @@
           <!--</el-col>-->
 
           <el-col :span="1" style="margin-left: 100px;margin-right: 5px">
-            <el-button type="primary" @click="showSearchResults" icon="el-icon-search">搜索</el-button>
+            <el-button type="primary" @click="jumpToSearchResult" icon="el-icon-search">搜索</el-button>
           </el-col>
 
           <!--<el-col :span="2" style="margin-left: 10px;margin-right: 5px">-->
-            <!--<el-select v-model="selectedSearchMode" placeholder="搜索模式"-->
-                       <!--@change="changeSearchMode">-->
-              <!--<el-option v-for="item in searchModes"-->
-                         <!--:key="item.value"-->
-                         <!--:label="item.label"-->
-                         <!--:value="item.value">-->
-              <!--</el-option>-->
-            <!--</el-select>-->
-          <!--</el-col>-->
+          <!--<el-select v-model="selectedSearchMode" placeholder="搜索模式"-->
+                     <!--@change="changeSearchMode">-->
+            <!--<el-option v-for="item in searchModes"-->
+                       <!--:key="item.value"-->
+                       <!--:label="item.label"-->
+                       <!--:value="item.value">-->
+            <!--</el-option>-->
+          <!--</el-select>-->
+        <!--</el-col>-->
           <!--<el-col :span="1" style="margin-left:10px">-->
             <!--<el-checkbox v-model="cn" border :disabled="cnCheckBoxDisabled">中文分词</el-checkbox>-->
           <!--</el-col>-->
         </el-row>
       </el-header>
-      <el-main>
 
-        <!--<div align="center">-->
-          <!--<el-card class="result-card" v-for="result in searchResults">-->
-            <!--<div slot="header" class="result-header">-->
-              <!--<span></span>-->
-            <!--</div>-->
-            <!--<div>-->
-              <!--<span></span>-->
-            <!--</div>-->
-          <!--</el-card>-->
-        <!--</div>-->
-      <div class="Result" v-for="item in searchResult" >
-        <el-card  class="box-card-component" v-if="item.type === 'book'">
-          <div slot="header" class="box-card-header"  >
-            <router-link  :to="'/bookshop/desc/'+item.id">
-            <img :src="item.pic_url">
-            </router-link>
-          </div>
-          <div style="position: relative;line-height: 16pt;text-align: center">
-            【{{ item.title }}】<br>
-            {{ item.author }}<br>
-           {{ item.price.toFixed(2) }}<br>
-            {{ item.ISBN }}
-          </div>
-        </el-card>
-
-        <el-card  class="box-card-component" v-if="item.type === 'author'">
-          <div slot="header" class="box-card-header"  >
-            <router-link  :to="'/bookshop/desc/'+item.id">
-              <img :src="item.pic_url">
-            </router-link>
-          </div>
-          <div style="position: relative;line-height: 16pt;text-align: center">
-            【{{ item.country }}】<br>
-            {{ item.name }}<br>
-          </div>
-        </el-card>
-      </div>
-      </el-main>
     </el-container>
-
-    <!--<el-dialog title="实体信息" :visible.sync="selectedEntityDialogVisible" width="35%">-->
-      <!--<el-form ref="selectedEntity" :model="selectedEntity" label-width="80px" style="margin-bottom: 5px">-->
-        <!--<el-form-item label="uuid">-->
-          <!--<div align="left">-->
-            <!--<span>{{selectedEntity.uuid}}</span>-->
-          <!--</div>-->
-        <!--</el-form-item>-->
-        <!--<el-form-item label="实体类型">-->
-          <!--<div align="left">-->
-            <!--<span>{{selectedEntity.type}}</span>-->
-          <!--</div>-->
-        <!--</el-form-item>-->
-        <!--<el-form-item label="实体名称">-->
-          <!--<div align="left">-->
-            <!--<span>{{selectedEntity.name}}</span>-->
-          <!--</div>-->
-        <!--</el-form-item>-->
-        <!--<el-form-item label="实体全称">-->
-          <!--<div align="left">-->
-            <!--<span>{{selectedEntity.FQDN}}</span>-->
-          <!--</div>-->
-        <!--</el-form-item>-->
-        <!--<el-form-item label="实体描述">-->
-          <!--<div align="left">-->
-            <!--<span>{{selectedEntity.desc}}</span>-->
-          <!--</div>-->
-        <!--</el-form-item>-->
-      <!--</el-form>-->
-      <!--<span slot="footer">-->
-      <!--<el-button type="success" @click="checkEntityInfo">确定</el-button>-->
-    <!--</span>-->
-    <!--</el-dialog>-->
   </div>
 </template>
 
@@ -141,6 +85,30 @@
     data() {
       return {
         keyword: "",
+        searchPlaceholder: "",
+        selectedSearchMode: "hybrid",
+        searchModes: [
+          {
+            label: "全部",
+            value: "hybrid",
+            placeholder: "请输入图书名称、作者或ISBN",
+          },
+          {
+            label: "图书",
+            value: "books",
+            placeholder: "请输入图书名称或图书作者",
+          },
+          {
+            label: "作者",
+            value: "authors",
+            placeholder: "请输入作者名称",
+          },
+          {
+            label: "ISBN",
+            value: "isbn",
+            placeholder: "请输入图书ISBN",
+          }
+        ],
         searchResult: [
 
         ],
@@ -164,10 +132,10 @@
 
         // 以下为真实数据
         var _this = this;
-        RestAPI.search(this.keyword, 40).then(res => {
+        var search_type = this.getCurrentSearchMode().value;
+        RestAPI.search(search_type, this.keyword, 40).then(res => {
           console.log(res);
           _this.searchSuggestions = res.data.data;
-          _this.searchResult = _this.searchSuggestions;
           if(res.data.status === 200)
           {
             var results = [];
@@ -178,12 +146,28 @@
                 "item": item,
                 "value": null
               }
-              if(item.type === "book")
-                suggestion.value = item.title;
-              else suggestion.value = item.name;
+              switch (search_type)
+              {
+                case "hybrid":
+                  if(item.type === "book")
+                    suggestion.value = item.title;
+                  else suggestion.value = item.name;
+                  break;
+                case "books":
+                  suggestion.value = "[" + item.author + "] " + item.title;
+                  break;
+                case "authors":
+                  suggestion.value = "[" + item.country + "] " + item.name;
+                  break;
+                case "isbn":
+                  // suggestion.value = "isbn: " + item.ISBN + " | " + item.title;
+                  suggestion.value = item.ISBN + " | " + item.title;
+                  break;
+                default:
+                  break;
+              }
               results.push(suggestion);
             }
-            // _this.searchResult = results;
             results.splice(_this.searchSuggestionSize, results.length - _this.searchSuggestionSize);
             cb(results);
           }
@@ -191,11 +175,25 @@
 
         });
       },
-      handleSelect() {
-
+      jumpToSearchResult() {
+        var search_type = this.getCurrentSearchMode().value;
+        this.$router.push({
+          name: 'SearchResult',
+          params:
+            {
+              keyword: this.keyword,
+              search_type: search_type
+            }
+        });
       },
-      showSearchResults() {
-
+      getCurrentSearchMode() {
+        for(var i = 0; i < this.searchModes.length; i++)
+          if(this.searchModes[i].value === this.selectedSearchMode){
+            return this.searchModes[i];
+          }
+      },
+      changeSearchMode() {
+        this.searchPlaceholder = getCurrentSearchMode().placeholder;
       }
     }
   }

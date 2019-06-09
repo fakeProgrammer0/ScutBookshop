@@ -97,13 +97,22 @@ export const constantRouterMap = [
         // hidden: true,
         meta: { title: 'desc', icon: 'documentation', noCache: true }
       },
+      // {
+      //   path: 'search',
+      //   component: () => import('@/views/bookshop/search.vue'),
+      //   props: true,
+      //   name: 'Search',
+      //   // hidden: true,
+      //   meta: { title: 'search', icon: 'star', noCache: true }
+      // },
       {
-        path: 'search',
-        component: () => import('@/views/bookshop/search.vue'),
+        path: 'search?search_type=:search_type&keyword=:keyword',
+        // path: 'search-result/:keyword',
+        component: () => import('@/views/layout/components/SearchResult.vue'),
         props: true,
-        name: 'Search',
+        name: 'SearchResult',
         // hidden: true,
-        meta: { title: 'search', icon: 'star', noCache: true }
+        meta: { title: 'search-result', icon: 'star', noCache: true }
       },
       {
         path: 'fav',

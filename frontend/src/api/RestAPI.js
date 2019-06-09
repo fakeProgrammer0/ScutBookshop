@@ -6,8 +6,8 @@ export const PUT = 'put';
 export const DELETE = 'delete';
 
 // 本机调试
-// export const baseUrl = 'http://localhost:8080'; // 本地调试
-export const baseUrl = 'http://localhost:18080'; // api文档调试
+export const baseUrl = 'http://localhost:8080'; // 本地调试
+// export const baseUrl = 'http://localhost:18080'; // api文档调试
 // export const baseUrl = 'http://116.56.140.131:8080'; // 院长的超级服务器（华工校园网，夜间断网不可用）
 
 // A1.获取作者详情信息
@@ -74,14 +74,40 @@ export const getBooksInCategory = (category_id, page, per_page) =>{
   })
 };
 
-export const search = (keyword, size) => {
+// export const search = (keyword, size) => {
+//   return axios({
+//     url: baseUrl + "/search",
+//     params: {
+//       "keyword": keyword,
+//       "size": size
+//     }
+//   });
+// };
+
+export const search = (search_type, keyword, size) => {
   return axios({
-    url: baseUrl + "/search",
+    url: baseUrl + "/search/" + search_type,
     params: {
       "keyword": keyword,
       "size": size
     }
   });
+};
+
+export const searchHybrid = (keyword, size) => {
+  return search("hybrid", keyword, size);
+};
+
+export const searchBooks = (keyword, size) => {
+  return search("books", keyword, size);
+};
+
+export const searchAuthors = (keyword, size) => {
+  return search("authors", keyword, size);
+};
+
+export const searchISBN = (keyword, size) => {
+  return search("isbn", keyword, size);
 };
 
 // 用户
@@ -119,7 +145,7 @@ export const login = (username, password) => {
 export const addFavorite = (user_id, favorite_type, favorite_id) => {
   return axios({
     method: POST,
-    url: "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
+    url: baseUrl + "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
   })
 }
 
@@ -135,7 +161,7 @@ export const addFavoriteAuthor = (user_id, author_id) => {
 export const removeFavorite = (user_id, favorite_type, favorite_id) => {
   return axios({
     method: DELETE,
-    url: "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
+    url: baseUrl +  "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
   })
 }
 
@@ -150,7 +176,7 @@ export const removeFavoriteAuthor = (user_id, author_id) => {
 // F3.检查是否添加收藏夹
 export const checkFavorite = (user_id, favorite_type, favorite_id) => {
   return axios({
-    url: "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
+    url: baseUrl +  "/users/" + user_id + "/favorites/" + favorite_type + "s/" + favorite_id
   })
 }
 
@@ -167,7 +193,7 @@ export const getFavoriteBooks = (user_id, page, per_page) => {
   page = page ? page : 1;
   per_page = per_page ? per_page : 5;
   return new axios({
-    url: "/users/" + user_id + "/favorites/books",
+    url: baseUrl +  "/users/" + user_id + "/favorites/books",
     params: {
       "page": page,
       "per_page": per_page
@@ -180,9 +206,9 @@ export const getFavoriteAuthors = (user_id, page, per_page) => {
   page = page ? page : 1;
   per_page = per_page ? per_page : 5;
   return new axios({
-    url: "/users/" + user_id + "/favorites/authors",
+    url: baseUrl +  "/users/" + user_id + "/favorites/authors",
     params: {
-      "page": page, 
+      "page": page,
       "per_page": per_page
     }
   })
