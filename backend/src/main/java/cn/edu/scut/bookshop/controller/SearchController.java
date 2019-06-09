@@ -16,10 +16,39 @@ public class SearchController
     @Autowired
     private SearchService searchService;
     
-    @ApiOperation("搜索图书、作者")
+    @ApiOperation("S1.搜索图书、作者")
     @GetMapping("/search")
-    public Result search(@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "10") int size)
+    public Result hybridSearch(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "10") int size)
     {
-        return searchService.search(keyword, size);
+        return searchService.hybridSearch(keyword, size);
+    }
+    
+    @ApiOperation("S2.搜索图书")
+    @GetMapping("/search/books")
+    public Result searchBooks(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "10") int size)
+    {
+        return searchService.searchBooks(keyword, size);
+    }
+    
+    @ApiOperation("S3.搜索作者")
+    @GetMapping("/search/authors")
+    public Result searchAuthors(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "10") int size)
+    {
+        return searchService.searchAuthors(keyword, size);
+    }
+    
+    @ApiOperation("S4.搜索ISBN")
+    @GetMapping("/search/isbn")
+    public Result searchISBN(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "10") int size)
+    {
+        return searchService.searchISBN(keyword, size);
     }
 }
