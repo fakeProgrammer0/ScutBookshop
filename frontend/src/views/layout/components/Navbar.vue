@@ -5,34 +5,16 @@
 <!--    <breadcrumb class="breadcrumb-container"/>-->
     <span class="left-menu">
        <router-link :to="{name: 'home'}">
-      <el-link>首页</el-link>
+        首页
        </router-link>
 
-      <el-link>推荐</el-link>
+      推荐
     </span>
 
     <div class="right-menu">
-<!--      <template v-if="device!=='mobile'">-->
-<!--        <error-log class="errLog-container right-menu-item"/>-->
-
-<!--        <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">-->
-<!--          <screenfull class="screenfull right-menu-item"/>-->
-<!--        </el-tooltip>-->
-
-<!--        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">-->
-<!--          <size-select class="international right-menu-item"/>-->
-<!--        </el-tooltip>-->
-
-<!--        <lang-select class="international right-menu-item"/>-->
-
-<!--        <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">-->
-<!--          <theme-picker class="theme-switch right-menu-item"/>-->
-<!--        </el-tooltip>-->
-<!--      </template>-->
-
-
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
+          <!--<img src="@/assets/icon/user.jpg" class="user-avatar">-->
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
           <i class="el-icon-caret-bottom"/>
         </div>
@@ -42,11 +24,7 @@
               {{ $t('navbar.dashboard') }}
             </el-dropdown-item>
           </router-link>
-          <a target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/">
-            <el-dropdown-item>
-              {{ $t('navbar.github') }}
-            </el-dropdown-item>
-          </a>
+
           <el-dropdown-item divided>
             <span style="display:block;" @click="Login">登录</span>
           </el-dropdown-item>
@@ -61,7 +39,7 @@
     </div>
 
     <el-dialog title="提示" :visible.sync="LoginVisible">
-      <Account></Account>
+      <Account @success="success"></Account>
     </el-dialog>
 
   </div>
@@ -112,6 +90,10 @@ export default {
       // })
       // todo:测试用
       this.LoginVisible = true
+    },
+    // 登录成功
+    success(val){
+      this.LoginVisible = false
     }
   }
 }

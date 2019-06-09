@@ -6,8 +6,8 @@
             <h2>登录</h2>
           </el-row>
           <el-row type="flex" justify="center">
-            <el-form-item label="账户：" prop="name">
-              <el-input v-model="form.name" size="small"></el-input>
+            <el-form-item label="账户：" prop="username">
+              <el-input v-model="form.username" size="small"></el-input>
             </el-form-item>
           </el-row>
           <el-row type="flex" justify="center">
@@ -23,8 +23,9 @@
     </div>
 </template>
 
-<!--数据存贮交互，事件控制地区-->
 <script>
+  import * as RestAPI from '@/api/RestAPI';
+  import store from '@/store'
   export default {
     name: 'login',
     data () {
@@ -44,11 +45,11 @@
       return {
         Account:true,
         form: {
-          name: '',
+          username: '',
           password: ''
         },
         rules: {
-          name: [
+          username: [
             { validator: validateName, trigger: 'blur' }
           ],
           password: [
@@ -60,8 +61,19 @@
     methods: {
       /* 提交进行判断的函数 */
       submitData: function () {
-        // todo:接入后端API
-        this.$message('这是一条消息提示');
+        let _this = this;
+        RestAPI.login(_this.form.username, _this.form.password).then(function(res) {
+          if (res.data.status === 200) {
+            let user = res.data.data.user
+            store.dispatch("setUser",user)
+            _this.$emit("LoginSuccess",user)
+          } else {
+            alert(res.data.msg)
+          }
+        }).catch(function (err)  {
+          alert("用户名或密码错误")
+          console.log(err)
+        })
       },
       register: function () {
         this.$emit('toRegister', false)
